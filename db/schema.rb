@@ -14,23 +14,26 @@
 ActiveRecord::Schema.define(version: 20160304182537) do
 
   create_table "direcciones", force: :cascade do |t|
-    t.string   "nombre",     limit: 150, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "nombre",           limit: 150, null: false
+    t.integer  "subsecretaria_id", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "ideas", force: :cascade do |t|
     t.text     "texto",      limit: 65535, null: false
+    t.integer  "persona_id", limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
 
   create_table "personas", force: :cascade do |t|
-    t.string   "miba_id",    limit: 255
-    t.string   "email",      limit: 100, null: false
-    t.string   "nombre",     limit: 250, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "miba_id",      limit: 255
+    t.string   "email",        limit: 100, null: false
+    t.string   "nombre",       limit: 250, null: false
+    t.integer  "direccion_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "subsecretaria", force: :cascade do |t|

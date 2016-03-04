@@ -3,6 +3,7 @@ class CreateIdeas < ActiveRecord::Migration
     create_table :ideas do |t|
       t.text :texto, limit: 300, null: false
       
+      t.references :persona
       t.timestamps null: false
     end
   end

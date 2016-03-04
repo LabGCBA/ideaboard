@@ -5,6 +5,7 @@ class CreatePersonas < ActiveRecord::Migration
       t.string :email, limit: 100, null: false
       t.string :nombre, limit: 250, null: false
       
+      t.references :direccion
       t.timestamps null: false
     end
   end
