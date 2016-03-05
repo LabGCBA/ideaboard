@@ -1,0 +1,2 @@
+class SubsecretariasController < ApplicationController
+end
