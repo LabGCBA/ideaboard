@@ -1,6 +1,6 @@
 class CreateSubsecretarias < ActiveRecord::Migration
   def change
-    create_table :subsecretaria do |t|
+    create_table :subsecretarias do |t|
       t.string :nombre, limit: 150, null: false
 
       t.timestamps null: false
