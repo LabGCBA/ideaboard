@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   def index
+    @all = Idea.all
   end
   
   def new
