@@ -4,9 +4,9 @@ Internal idea board
 ## Installing
 Después de correr `$ bundle install` ejecutar:
 ```
+$ rake db:create
 $ rake db:migrate
 ```
-Para seedear la base de datos.
 Luego:
 ```
 $ rake db:migrate
@@ -17,4 +17,5 @@ Para terminar de instalar las gemas `commontator` y `act-as-taggable-on`.
 Y finalmente otra vez:
 ```
 $ rake db:migrate
+$ rake db:seed
 ```
