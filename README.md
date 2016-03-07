@@ -9,7 +9,6 @@ $ rake db:migrate
 ```
 Luego:
 ```
-$ rake db:migrate
 $ rake commontator:install
 $ rake acts_as_taggable_on_engine:tag_names:collate_bin
 ```
