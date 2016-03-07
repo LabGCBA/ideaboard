@@ -11,8 +11,9 @@ Luego:
 ```
 $ rake commontator:install
 $ rake acts_as_taggable_on_engine:tag_names:collate_bin
+$ rails generate semantic_ui:install
 ```
-Para terminar de instalar las gemas `commontator` y `act-as-taggable-on`.
+Para terminar de instalar las gemas, `commontator`, `act-as-taggable-on` y `less-rails-semantic_ui`.
 Y finalmente otra vez:
 ```
 $ rake db:migrate

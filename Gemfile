@@ -38,6 +38,12 @@ gem 'commontator'
 
 gem 'acts-as-taggable-on', '>= 2.3.1'
 
+gem 'less-rails-semantic_ui'
+
+gem 'autoprefixer-rails'
+
+gem 'therubyracer'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
