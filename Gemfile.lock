@@ -95,7 +95,12 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     nokogiri (1.6.7.2-x86-mingw32)
       mini_portile2 (~> 2.0.0.rc2)
+    open_id_authentication (1.2.0)
+      rack-openid (~> 1.3)
     rack (1.6.4)
+    rack-openid (1.4.2)
+      rack (>= 1.1.0)
+      ruby-openid (>= 2.1.8)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.2)
@@ -126,6 +131,7 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     ref (2.0.0)
+    ruby-openid (2.7.0)
     sass (3.4.21)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -181,7 +187,9 @@ DEPENDENCIES
   jquery-rails
   less-rails-semantic_ui
   mysql2
+  open_id_authentication
   rails (= 4.2.5.2)
+  ruby-openid
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
