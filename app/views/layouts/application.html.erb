@@ -1,7 +1,10 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Ideaboard</title>
+    <meta charset="utf-8">
+
+    <title>Idea Board</title>
+    <meta name="description" content="Internal Idea Board">
+    <meta name="author" content="Dirección General de Gobierno Abierto">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,6 +12,6 @@
 <body>
 
 <%= yield %>
-
+    <%= javascript_include_tag "semantic_ui" %>
 </body>
 </html>
