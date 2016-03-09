@@ -46,6 +46,12 @@ gem 'autoprefixer-rails'
 
 gem 'therubyracer'
 
+gem 'devise'
+
+gem 'thumbs_up'
+
+gem 'protected_attributes'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
