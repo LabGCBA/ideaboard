@@ -40,14 +40,14 @@ header {
     float: left;
     position: relative;
     overflow: hidden;
-    margin-top: -2.5%;
+    margin-top: -6%;
 }
 
 header img {
     position: relative;
     top: 0;
-    left: -2%;
-    width: 106.5%;
+    left: -3%;
+    width: 108%;
 }
 
 header > h1 {
