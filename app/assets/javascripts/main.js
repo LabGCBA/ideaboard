@@ -12,4 +12,19 @@ $(document).ready(function() {
         multiline: true,
         align_center: false
     });
+
+    $(".pure-form").validate({
+        rules:{
+            "idea[texto]": {
+                required: true,
+                minlength: 20,
+            }
+        },
+        showErrors: function(errorMap, errorList) {
+            // Avoid showing errors
+        },
+        submitHandler: function(form){
+            $.rails.handleRemote($(form));
+        }
+    })  
 });

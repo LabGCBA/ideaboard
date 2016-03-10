@@ -38,6 +38,8 @@ gem 'pure-css-rails'
 
 gem 'masonry-rails'
 
+gem 'jquery-validation-rails'
+
 gem 'acts-as-taggable-on', '>= 2.3.1'
 
 gem 'autoprefixer-rails'
