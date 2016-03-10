@@ -1,23 +1,29 @@
 class IdeasController < ApplicationController
+  before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  
   def index
-    @all = Idea.all
-    @idea = Idea.first
+    @ideas = Idea.all
+    @idea = Idea.new
   end
   
-  def new
+  def new    
   end
   
   def create
     @idea = Idea.new(idea_params)
-    
     @idea.persona_id = 1
-    
-    if @idea.save
-      flash[:success] = "Idea guardada!"
-    else
-      flash[:error] = "Hubo un error. No se pudo guardar la idea :("    end
-    
-    redirect_to root_path
+
+    respond_to do |format|
+      if @idea.save
+        format.html { redirect_to root_path }
+        format.json { render :show, status: :created, location: @idea }
+        format.js
+      else
+        format.html { redirect_to root_path, notice: 'Hubo un error. No se pudo guardar la idea :(' }
+        format.json { render json: @idea.errors, status: :unprocessable_entity }
+        format.js
+      end
+    end
   end
   
   def show
@@ -27,23 +33,36 @@ class IdeasController < ApplicationController
   end
   
   def update
-    idea = Idea.find(params[:id])
-    if idea.update_attributes(idea_params)
-      flash[:success] = "Idea guardada!"
-    else
-      flash[:error] = "Hubo un error. No se pudo guardar la idea :("
+    respond_to do |format|
+      if @idea.update(idea_params)
+        format.html { redirect_to root_path, notice: 'Idea guardada!' }
+        format.json { render :show, status: :ok, location: @idea }
+        format.js
+      else
+        format.html { redirect_to root_path, notice: 'Hubo un error. No se pudo guardar la idea :(' }
+        format.json { render json: @idea.errors, status: :unprocessable_entity }
+        format.js
+      end
     end
-    redirect_to root_path
   end
   
   def destroy
-    Idea.find(params[:id]).destroy
-    flash[:success] = "Idea eliminada"
-    redirect_to root_path
+    @idea.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Idea eliminada.' }
+      format.json { head :no_content }
+      format.js
+    end
   end
   
+  
   private
-  def idea_params
-    params.require(:idea).permit(:texto)
-  end
+  
+    def set_idea
+        @idea = Idea.find(params[:id])
+    end
+
+    def idea_params
+        params.require(:idea).permit(:texto)
+    end
 end

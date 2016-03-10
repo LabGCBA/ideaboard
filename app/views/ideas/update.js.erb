@@ -1,0 +1,6 @@
+$('#edit-idea-<%= @idea.id %>').modal('hide');
+
+$('#idea_<%= @idea.id %>').fadeOut(500, function() {
+    $(this).remove();
+    $grid.prepend('<%= j render @idea %>');
+});

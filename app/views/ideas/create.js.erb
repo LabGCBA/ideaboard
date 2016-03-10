@@ -1,0 +1,8 @@
+var html = $("<%= escape_javascript render(partial: 'ideas/idea', locals: { idea: @idea }) %>");
+    
+$(".ideas").prepend(html).masonry('prepended', html);
+
+html.boxfit({
+    multiline: true,
+    align_center: false
+});

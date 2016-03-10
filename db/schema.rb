@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305162434) do
+ActiveRecord::Schema.define(version: 20160309124841) do
 
   create_table "commontator_comments", force: :cascade do |t|
     t.string   "creator_type",      limit: 255
@@ -70,13 +70,25 @@ ActiveRecord::Schema.define(version: 20160305162434) do
   end
 
   create_table "personas", force: :cascade do |t|
-    t.string   "miba_id",      limit: 255
-    t.string   "email",        limit: 100, null: false
-    t.string   "nombre",       limit: 250, null: false
-    t.integer  "direccion_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "miba_id",                limit: 255
+    t.string   "nombre",                 limit: 250,              null: false
+    t.integer  "direccion_id",           limit: 4
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
   end
+
+  add_index "personas", ["email"], name: "index_personas_on_email", unique: true, using: :btree
+  add_index "personas", ["reset_password_token"], name: "index_personas_on_reset_password_token", unique: true, using: :btree
 
   create_table "subsecretarias", force: :cascade do |t|
     t.string   "nombre",     limit: 150, null: false
@@ -103,5 +115,19 @@ ActiveRecord::Schema.define(version: 20160305162434) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.boolean  "vote",                      default: false, null: false
+    t.integer  "voteable_id",   limit: 4,                   null: false
+    t.string   "voteable_type", limit: 255,                 null: false
+    t.integer  "voter_id",      limit: 4
+    t.string   "voter_type",    limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["voteable_id", "voteable_type"], name: "index_votes_on_voteable_id_and_voteable_type", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "voteable_id", "voteable_type"], name: "fk_one_vote_per_user_per_entity", unique: true, using: :btree
+  add_index "votes", ["voter_id", "voter_type"], name: "index_votes_on_voter_id_and_voter_type", using: :btree
 
 end

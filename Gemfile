@@ -36,11 +36,11 @@ gem 'tzinfo-data'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'commontator'
+gem 'pure-css-rails'
+
+gem 'masonry-rails'
 
 gem 'acts-as-taggable-on', '>= 2.3.1'
-
-gem 'less-rails-semantic_ui'
 
 gem 'autoprefixer-rails'
 

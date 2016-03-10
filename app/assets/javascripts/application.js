@@ -14,36 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require semantic_ui/semantic_ui
-
-$(document).ready(function() {
-    $("#center .item:first()").addClass("idea-active");
-
-    $("#agregar-idea").click(function() {
-        $('#new-idea').modal('show');
-    });
-
-    $(".editar-idea").click(function() {
-        var text = $(this).parents(".content").find(".header").text();
-        var textarea = $('#edit-idea').find('textarea');
-        var id = $(this).attr("data-id");
-        var url = '/ideas/' + id
-        var form = $('#edit-idea').find("form");
-        textarea.text(text);
-
-        form.attr("action", url);
-
-        $('#edit-idea').modal("setting", {
-            onHidden: function() {
-                textarea.text('');
-            }
-        }).modal('show');
-    });
-
-    $("#center .item .header").click(function() {
-        if (!$(this).parents(".item").hasClass("idea-active")) {
-            $(this).parents(".item").addClass("idea-active");
-            $(this).parents(".item").siblings().removeClass("idea-active");
-        }
-    });    
-});
+//= require masonry/masonry.min
+//= require masonry/jquery.event-drag
+//= require masonry/jquery.imagesloaded.min
+//= require masonry/jquery.infinitescroll.min
+//= require masonry/modernizr-transitions

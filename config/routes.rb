@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :personas
   resources :ideas, :personas, :direcciones, :subsecretarias
 
   resource :session, only: [:new, :create, :destroy]

@@ -1,159 +1,22 @@
-    <section id="main" class="ui bottom attached stackable doubling grid">
-        <div class="row">
-            
-            <aside id="left" class="ui visible left pushable sidebar vertical inverted main menu">
-                <a id="agregar-idea" class="item">
-                    <i class="plus icon"></i>
-                    Agregar Idea
-                </a>
-                <div class="item">
-                    <div class="header">Ideas</div>
-                    <div class="menu">
-                        <a class="active item">
-                            Más Votadas
-                        </a>
-                        <a class="item">
-                            Más Comentadas
-                        </a>
-                        <a class="item">
-                            Más Nuevas
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="item">
-                    <div class="header">Estados</div>
-                    <div class="menu">
-                        <a class="item">
-                            Nuevas
-                        </a>
-                        <a class="item">
-                            Bajo Consideración
-                        </a>
-                        <a class="item">
-                            En Ejecución
-                        </a>
-                        <a class="item">
-                            Completadas
-                        </a>
-                    </div>
-                </div>
-                
-            </aside>
-
-            <section id="center" class="left floated left aligned ui eight wide column pusher">
-                <div class="ui grid">
-                    <div class="ui divided items">
-
-                    <% @all.each do |idea| %>
-                        <article class="row link item">
-                            <div class="ui one wide column">
-                                <div class="vote card">
-                                    <span class="ui basic large label">
-                                        20
-                                    </span>
-                                    <div class="ui bottom attached button">
-                                        Votar
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ui seven wide column content">
-                                <a class="header"><%= idea.texto %></a>
-                                <div class="description">
-                                    <div class="left floated left aligned five wide column">
-                                        <a class="ui image label">
-                                            <img src="/images/avatar/small/veronika.jpg">
-                                            <%= idea.persona.nombre %>
-                                            <div class="detail">DGIGA</div>                      
-                                        </a>
-                                        <span class="ui label">
-                                            <i class="chat icon"></i> 6
-                                        </span>
-                                        <%= link_to "<i class='remove icon'></i>".html_safe, idea, method: :delete, data: { confirm: "Seguro?" } %>
-                                        <a class="editar-idea" data-id="<%= idea.id %>">
-                                            <i class="edit icon"></i>
-                                        </a>
-                                    </div>
-                                    <div class="right floated left aligned two wide column">
-                                        <a class="ui red tag label">En ejecución</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    <% end %>
-                        
-                    </div>    
-                </div>
-            </section>
-            
-            <aside id="right" class="right floated left aligned ui eight wide column pusher">
-                <div class="ui comments">
-                    <div class="comment">
-                        <a class="avatar">
-                            <img src="/images/avatar/small/joe.jpg">
-                        </a>
-                        <div class="content">
-                            <a class="author">Joe Henderson</a>
-                            <div class="metadata">
-                                <div class="date">1 day ago</div>
-                            </div>
-                            <div class="text">
-                                <p>The hours, minutes and seconds stand as visible reminders that your effort put them all there. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <form class="ui reply form">
-                        <div class="field">
-                            <textarea rows="3"></textarea>
-                        </div>
-                        <div class="ui primary submit labeled icon button">
-                            <i class="icon edit"></i>
-                            Enviar
-                        </div>
-                    </form>
-                </div>
-            </aside>
-    </section>
-    
-    <section id="new-idea" class="ui small modal">
-        <i class="close icon"></i>
-        <div class="header">
-            Nueva Idea
-        </div>
-        <div class="image content">
-            <div class="description">
-                <form class="ui form" method="POST" action="<%= url_for(:controller => 'ideas', :action => 'create') %>">
-                    <div class="field">
-                        <textarea name="idea[texto]" rows="3"></textarea>
-                    </div>
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <button type="submit"  class="ui primary submit labeled icon button">
-                        <i class="icon plus"></i>
-                        Agregar
-                    </button>
-                </form>
+    <div class="container pure-g">
+        <header class="pure-u-1">
+            <h1 class="title">Expresómetro</h1>
+            <img src="<%= image_path("mural.svg") %>" alt="">
+        </header>
+        <section class="grid pure-u-1 form">
+            <div class="pure-u-1-5"></div>
+            <div class="pure-u-3-5">
+                <%= render partial: 'form', locals: { idea: @idea} %>
             </div>
-        </div>
-    </section>
-    
-    <section id="edit-idea" class="ui small modal">
-        <i class="close icon"></i>
-        <div class="header">
-            Editar Idea
-        </div>
-        <div class="image content">
-            <div class="description">
-                <form class="ui form" method="POST" action="">
-                    <div class="field">
-                        <textarea name="idea[texto]" rows="3"></textarea>
-                    </div>
-                    <input type="hidden" name="_method" value="patch">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <button type="submit" class="ui primary submit labeled icon button">
-                        <i class="icon edit"></i>
-                        Guardar
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
+            <div class="pure-u-1-5"></div>
+            <% flash.each do |name, msg| %>
+                <%= content_tag :div, msg, class: "ui alert" %>
+            <% end %>
+            </aside>
+        </section>
+        <section class="grid pure-u-1 ideas">
+            <% @ideas.each do |idea| %>
+                <%= render partial: 'idea', locals: { idea: idea} %>
+            <% end %>
+         </section>
+    </div>

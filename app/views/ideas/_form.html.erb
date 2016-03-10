@@ -1,0 +1,6 @@
+                <%= form_for(idea, remote: true, url: {controller: "ideas", action: "create"}, html: {class: "pure-form"}) do |f| %>
+                    <fieldset>
+                        <%= f.text_field :texto, class: "pure-input-3-4" %>
+                        <%= submit_tag "Publicar", class: "pure-button pure-button-primary" %>
+                    </fieldset>  
+                <% end %>
