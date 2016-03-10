@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160309124841) do
+=======
+ActiveRecord::Schema.define(version: 20160309124503) do
+>>>>>>> 8b97590496aab964466aa19c581a869132544870
 
   create_table "commontator_comments", force: :cascade do |t|
     t.string   "creator_type",      limit: 255
@@ -70,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160309124841) do
   end
 
   create_table "personas", force: :cascade do |t|
+<<<<<<< HEAD
     t.string   "miba_id",                limit: 255
     t.string   "nombre",                 limit: 250,              null: false
     t.integer  "direccion_id",           limit: 4
@@ -85,6 +90,13 @@ ActiveRecord::Schema.define(version: 20160309124841) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+=======
+    t.string   "miba_id",      limit: 255
+    t.string   "nombre",       limit: 250, null: false
+    t.integer  "direccion_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+>>>>>>> 8b97590496aab964466aa19c581a869132544870
   end
 
   add_index "personas", ["email"], name: "index_personas_on_email", unique: true, using: :btree
