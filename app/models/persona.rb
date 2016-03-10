@@ -5,9 +5,6 @@ class Persona < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :ideas, dependent: :destroy
   belongs_to :direccion
-<<<<<<< HEAD
   attr_accessible :nombre, :email, :direccion, :password, :identity_url
-=======
->>>>>>> 8b97590496aab964466aa19c581a869132544870
   acts_as_voter
 end
