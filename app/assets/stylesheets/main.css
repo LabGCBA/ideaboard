@@ -73,7 +73,7 @@ header > h1 {
 
 .pure-form .pure-input-3-4 {
     width: calc(98% - 200px);
-    min-width: 275px;
+    min-width: 325px;
     margin-right: 0.5%;
     margin-top: 10px;
     border: none !important;
@@ -109,7 +109,7 @@ header > h1 {
 article.idea {
     box-sizing: border-box;
     background: #fff;
-    width: 300px;
+    width: 350px;
     padding: 20px 20px 15px 20px;
     margin-top: 20px;
     margin-bottom: 20px;
