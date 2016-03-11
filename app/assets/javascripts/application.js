@@ -19,5 +19,3 @@
 //= require masonry/jquery.imagesloaded.min
 //= require masonry/jquery.infinitescroll.min
 //= require masonry/modernizr-transitions
-//= require jquery.validate
-//= require jquery.validate.additional-methods

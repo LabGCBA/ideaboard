@@ -1,5 +1,5 @@
-var html = $("<%= escape_javascript render(partial: 'ideas/idea', locals: { idea: @idea }) %>");
-    
+var html = $('<%= j(render(partial: 'ideas/idea', locals: { idea: @idea })).to_s %>');
+
 $(".ideas").prepend(html).masonry('prepended', html);
 ideaCache.push("<%= @idea.texto %>");
 

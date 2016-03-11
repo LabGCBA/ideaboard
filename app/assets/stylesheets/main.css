@@ -200,6 +200,7 @@ article.idea:after {
     font-size: 20px;
     color: white;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
     padding-top: 5px;
 }
 
