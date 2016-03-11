@@ -69,6 +69,14 @@ header > h1 {
 .form {
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 100%;
+}
+
+.pure-form {
+    margin: 0 auto;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .pure-form .pure-input-3-4 {
