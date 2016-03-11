@@ -37,7 +37,8 @@ $(document).ready(function() {
             }
         },
         showErrors: function(errorMap, errorList) {
-            noty({
+            if ($("#new_idea .pure-input-3-4").val() !== promptActive) {
+                noty({
                 text: errorList[0].message,
                 animation: {
                     open: {height: 'toggle'}, // jQuery animate function property object
@@ -49,6 +50,7 @@ $(document).ready(function() {
                 }
             });
             setTimeout(function(){ $.noty.closeAll() ; }, 1500);
+            }
         },
         submitHandler: function(form) {
             $.rails.handleRemote($(form));
