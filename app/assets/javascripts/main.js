@@ -13,17 +13,18 @@ $(document).ready(function() {
         };
     });
 
+    $('.content').boxfit({
+        multiline: true,
+        align_center: false
+    });
+
     $('.ideas').masonry({
         itemSelector: '.idea',
         isFitWidth: true,
         gutter: 20,
         resize: true,
     });
-
-    $('.content').boxfit({
-        multiline: true,
-        align_center: false
-    });
+    
 
     $("#new_idea .pure-button").click(function(e) {
         if (ideaCache.indexOf($(".pure-input-3-4").val()) !== -1 || $(".pure-input-3-4").val() === prompt) {

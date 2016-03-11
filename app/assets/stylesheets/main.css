@@ -40,14 +40,13 @@ header {
     float: left;
     position: relative;
     overflow: hidden;
-    margin-top: -6%;
 }
 
 header img {
     position: relative;
     top: 0;
-    left: -3%;
-    width: 108%;
+    width: 91%;
+    margin: 0 4.5%;
 }
 
 header > h1 {
@@ -60,7 +59,7 @@ header > h1 {
 
 .title {
     font-family: 'GothamRoundedLight' !important;
-    font-size: 4.5vw;
+    font-size: 3.2vw;
     font-weight: 100;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -72,8 +71,12 @@ header > h1 {
     width: 100%;
 }
 
+#new_idea {
+    margin: 0 5%;
+}
+
 .pure-form {
-    margin: 0 auto;
+    margin: 0 1.7%;
     display: block !important;
 }
 
@@ -91,7 +94,7 @@ header > h1 {
 
 .pure-form .pure-input-3-4 {
     width: calc(98% - 200px);
-    min-width: 315px;
+    min-width: 365px;
     margin-right: 1%;
     margin-top: 10px;
     border: none !important;
@@ -117,6 +120,7 @@ header > h1 {
 }
 
 .ideas {
+    display: block !important;
     margin: 0 auto;
     width: 100%;
     margin-top: 20px;
@@ -124,7 +128,6 @@ header > h1 {
 }
 
 article.idea {
-    box-sizing: border-box;
     background: #fff;
     width: 350px;
     padding: 20px 20px 0px 20px;

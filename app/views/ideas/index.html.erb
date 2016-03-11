@@ -1,10 +1,10 @@
     <div class="container pure-g">
         <header class="pure-u-1">
             <h1 class="title">Expresómetro</h1>
-            <img src="<%= image_path("mural.svg") %>" alt="">
+            <img src="<%= image_path("mural.png") %>" alt="">
         </header>
         <section class="grid pure-u-1 form">
-            <div class="pure-form pure-u-4-5">
+            <div class="pure-form">
                 <%= render partial: 'form', locals: { idea: @idea} %>
             </div>
             <% flash.each do |name, msg| %>
