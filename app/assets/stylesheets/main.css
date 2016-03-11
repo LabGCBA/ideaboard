@@ -95,6 +95,7 @@ header > h1 {
 .pure-form .pure-input-3-4 {
     width: calc(98% - 200px);
     min-width: 365px;
+    padding: 0.5em 1em;
     margin-right: 1%;
     margin-top: 10px;
     border: none !important;
@@ -104,6 +105,11 @@ header > h1 {
     font-size: 22px;
     font-weight: 500;
     line-height: 28px;
+    resize: none;
+}
+
+.pure-form .pure-input-3-4::selection {
+    background: #ffc403;
 }
 
 .pure-form .pure-button {
@@ -117,6 +123,10 @@ header > h1 {
     font-weight: 500;
     line-height: 28px;
     letter-spacing: 0.1em;
+}
+
+.pure-form .pure-button:hover {
+    color: #ffc403;
 }
 
 .ideas {
@@ -177,4 +187,19 @@ article.idea:after {
     z-index: 10;
     content: ' ';
     left: 25px;
+}
+
+.noty_bar {
+    background: black !important;
+    font-family: 'GothamRoundedMedium';
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+    padding-top: 5px;
+}
+
+#noty_top_layout_container li {
+    border: none !important;
+    box-shadow: none !important;
 }
