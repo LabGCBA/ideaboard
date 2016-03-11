@@ -129,6 +129,10 @@ header > h1 {
     color: #ffc403;
 }
 
+.ideas-wrapper {
+    margin: 0 4%;
+}
+
 .ideas {
     display: block !important;
     margin: 0 auto;

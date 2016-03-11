@@ -12,9 +12,11 @@
             <% end %>
             </aside>
         </section>
-        <section class="grid pure-u-1 ideas">
-            <% @ideas.each do |idea| %>
-                <%= render partial: 'idea', locals: { idea: idea} %>
-            <% end %>
+        <section class="grid pure-u-1 ideas-wrapper">
+            <div class="ideas">
+                <% @ideas.each do |idea| %>
+                    <%= render partial: 'idea', locals: { idea: idea} %>
+                <% end %>
+            </div>
          </section>
     </div>
