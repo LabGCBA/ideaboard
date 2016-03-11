@@ -46,7 +46,7 @@ header img {
     position: relative;
     top: 0;
     width: 91%;
-    margin: 0 4.5%;
+    margin: 0 5%;
 }
 
 header > h1 {
@@ -76,7 +76,7 @@ header > h1 {
 }
 
 .pure-form {
-    margin: 0 1.7%;
+    margin: 0 2%;
     display: block !important;
 }
 
@@ -137,8 +137,11 @@ article.idea {
     font-family: 'GothamRoundedMedium';
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 400;
-	line-height: 25px;
+}
+
+article.idea:before {
+    content: ' ';
+    display: table;
 }
 
 article.idea .content {
