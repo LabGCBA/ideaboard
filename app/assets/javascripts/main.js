@@ -78,11 +78,10 @@ $(document).ready(function() {
     $("#new_idea .pure-input-3-4").on("focusout keyup", function(e){ e.stopPropagation(); });   
     $("#new_idea .pure-input-3-4").val(prompt);
     $("#new_idea .pure-input-3-4").on("focus", function() {
-        setCaretToPos($(this), $(this).length);
-
         if ($(this).val() === prompt || $("#new_idea").valid()) {
             $(this).val(promptActive);
         }
+        setCaretToPos($(this), $(this).length);
     });
     $("#new_idea .pure-input-3-4").blur(function() {
         if ($(this).val() === promptActive) {
