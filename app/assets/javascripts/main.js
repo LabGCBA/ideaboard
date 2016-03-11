@@ -1,5 +1,17 @@
+ideaCache = [];
+prompt = "Me gustaría...";
+promptActive = "Me gustaría "
+
 $(document).ready(function() {
-    $(".pure-input-3-4").val("Me gustaría...");
+    $("#new_idea .pure-input-3-4").val(prompt);
+    $("#new_idea .pure-input-3-4").on("focus", function() {
+        $(this).val(promptActive);
+    });
+    $("#new_idea .pure-input-3-4").blur(function() {
+        if ($(this).val() === promptActive) {
+            $(this).val(prompt);
+        };
+    });
 
     $('.ideas').masonry({
         itemSelector: '.idea',
@@ -13,7 +25,13 @@ $(document).ready(function() {
         align_center: false
     });
 
-    $(".pure-form").validate({
+    $("#new_idea .pure-button").click(function(e) {
+        if (ideaCache.indexOf($(".pure-input-3-4").val()) !== -1 || $(".pure-input-3-4").val() === prompt) {
+            e.preventDefault();
+        }
+    });
+    
+    $("#new_idea").validate({
         rules:{
             "idea[texto]": {
                 required: true,

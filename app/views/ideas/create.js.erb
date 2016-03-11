@@ -1,8 +1,16 @@
 var html = $("<%= escape_javascript render(partial: 'ideas/idea', locals: { idea: @idea }) %>");
     
 $(".ideas").prepend(html).masonry('prepended', html);
+ideaCache.push("<%= @idea.texto %>");
 
 html.boxfit({
     multiline: true,
     align_center: false
 });
+
+if ($("#new_idea .pure-input-3-4").is(":focus")) {
+    $("#new_idea .pure-input-3-4").val(promptActive);
+} 
+else {
+    $("#new_idea .pure-input-3-4").val(prompt);
+}
