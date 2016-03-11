@@ -130,6 +130,7 @@ header > h1 {
 }
 
 .ideas-wrapper {
+    width: 92% !important;
     margin: 0 4%;
 }
 
