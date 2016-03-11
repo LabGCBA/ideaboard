@@ -77,10 +77,22 @@ header > h1 {
     display: block !important;
 }
 
+.pure-form fieldset {
+    width: 100%;
+    height: 100%;
+    display: table;
+    text-align: center;
+}
+
+.pure-form fieldset input {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .pure-form .pure-input-3-4 {
     width: calc(98% - 200px);
-    min-width: 300px;
-    margin-right: 0.5%;
+    min-width: 315px;
+    margin-right: 1%;
     margin-top: 10px;
     border: none !important;
     border-radius: 0px !important;
@@ -93,7 +105,6 @@ header > h1 {
 
 .pure-form .pure-button {
     width: 200px;
-    margin-left: 0.5%;
     margin-top: 10px;
     background: black;
     border-radius: 0px;
