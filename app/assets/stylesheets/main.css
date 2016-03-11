@@ -159,6 +159,10 @@ article.idea .content {
     margin-bottom: 20px;
 }
 
+article.idea .content::selection {
+    background: #ffc403;
+}
+
 article.idea .content .text {
 	font-weight: 500;
 }

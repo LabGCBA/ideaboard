@@ -3,13 +3,63 @@ errors = false;
 prompt = "Me gustaría...";
 promptActive = "Me gustaría "
 
-$(document).ready(function() {
-    $("#new_idea .pure-button").click(function(e) {
-        if (ideaCache.indexOf($(".pure-input-3-4").val()) !== -1 || $(".pure-input-3-4").val() === prompt) {
-            e.preventDefault();
+function notifyError(message) {
+    noty({
+        text: message,
+        animation: {
+            open: {height: 'toggle'}, // jQuery animate function property object
+            close: {height: 'toggle'}, // jQuery animate function property object
+            easing: 'swing', // easing
+            speed: 500, // opening & closing animation speed
+            type: 'error',
+            killer: true,
         }
     });
+    setTimeout(function(){ $.noty.closeAll() ; }, 1500);
+}
 
+function validate(form) {
+    var text = $.trim(form.find(".pure-input-3-4").val());
+
+    if (ideaCache.indexOf(text) !== -1 || text === prompt || text === promptActive || text.length === 0) {
+        return false
+    }
+    else if (text.length < 20) {
+        notifyError("No menos de 20 letras!");
+        return false;
+    }
+    else if (text.length > 300) {
+        notifyError("No más de 300 letras!");
+        return false;
+    }
+
+    return true;
+}
+
+$(document).ready(function() {
+    $.validator.setDefaults({ 
+        debug: true,
+        onkeyup: false,
+        onclick: false,
+        onfocusout: false,
+        focusCleanup: true,
+    });
+
+    $("#new_idea .pure-button").click(function(e) {
+        var text = $.trim($("#new_idea .pure-input-3-4").val());
+        $("#new_idea .pure-input-3-4").val(text);
+
+        if (validate($(this))) {
+            $("#new_idea").validate({
+                submitHandler: function(form) {
+                    $.rails.handleRemote($(form));
+                },
+            });
+        }
+        else e.preventDefault();
+    });
+
+    $("#new_idea .pure-input-3-4").on("focusout keyup", function(e){ e.stopPropagation(); });   
     $("#new_idea .pure-input-3-4").val(prompt);
     $("#new_idea .pure-input-3-4").on("focus", function() {
         this.selectionStart = this.selectionEnd = this.value.length;
@@ -24,46 +74,8 @@ $(document).ready(function() {
         };
     });
 
-    $("#new_idea").validate({
-        onkeyup: false,
-        onclick: false,
-        rules: {
-            "idea[texto]": {
-                required: true,
-                minlength: 20,
-                maxlength: 300,
-            }
-        },
-        messages: {
-            "idea[texto]": {
-                minlength: $.validator.format("No menos de {0} letras!"),
-                maxlength: $.validator.format("No más de {0} letras!"),
-            }
-        },
-        showErrors: function(errorMap, errorList) {
-            if ($("#new_idea .pure-input-3-4").val() !== promptActive) {
-                noty({
-                text: errorList[0].message,
-                animation: {
-                    open: {height: 'toggle'}, // jQuery animate function property object
-                    close: {height: 'toggle'}, // jQuery animate function property object
-                    easing: 'swing', // easing
-                    speed: 500, // opening & closing animation speed
-                    killer: true,
-                    type: 'error',
-                }
-            });
-            setTimeout(function(){ $.noty.closeAll() ; }, 1500);
-            }
-        },
-        submitHandler: function(form) {
-            $.rails.handleRemote($(form));
-        },
-    });
-
     $("#new_idea").submit(function() {
-        var text = String.prototype.trim($("#new_idea .pure-input-3-4").val());
-        $("#new_idea .pure-input-3-4").val(text);
+  
     });    
 
     autosize($('.pure-form .pure-input-3-4'));
