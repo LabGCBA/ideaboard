@@ -23,7 +23,7 @@ $(document).ready(function() {
             $(this).val(prompt);
         };
     });
-    
+
     $("#new_idea").validate({
         onkeyup: false,
         onclick: false,
@@ -60,6 +60,11 @@ $(document).ready(function() {
             $.rails.handleRemote($(form));
         },
     });
+
+    $("#new_idea").submit(function() {
+        var text = String.prototype.trim($("#new_idea .pure-input-3-4").val());
+        $("#new_idea .pure-input-3-4").val(text);
+    });    
 
     autosize($('.pure-form .pure-input-3-4'));
 });
