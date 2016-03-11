@@ -12,6 +12,8 @@ $(document).ready(function() {
 
     $("#new_idea .pure-input-3-4").val(prompt);
     $("#new_idea .pure-input-3-4").on("focus", function() {
+        this.selectionStart = this.selectionEnd = this.value.length;
+
         if ($(this).val() === prompt || $("#new_idea").valid()) {
             $(this).val(promptActive);
         }
@@ -23,6 +25,8 @@ $(document).ready(function() {
     });
     
     $("#new_idea").validate({
+        onkeyup: false,
+        onclick: false,
         rules: {
             "idea[texto]": {
                 required: true,
