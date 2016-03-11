@@ -49,14 +49,12 @@ $(document).ready(function() {
         var text = $.trim($("#new_idea .pure-input-3-4").val());
         $("#new_idea .pure-input-3-4").val(text);
 
-        if (validate($(this))) {
-            $("#new_idea").validate({
-                submitHandler: function(form) {
-                    $.rails.handleRemote($(form));
-                },
-            });
+        if (validate($('#new_idea'))) {
+            $.rails.handleRemote($("#new_idea"));
         }
-        else e.preventDefault();
+        else {
+            e.preventDefault();
+        }
     });
 
     $("#new_idea .pure-input-3-4").on("focusout keyup", function(e){ e.stopPropagation(); });   
