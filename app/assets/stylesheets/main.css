@@ -74,14 +74,12 @@ header > h1 {
 
 .pure-form {
     margin: 0 auto;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: block !important;
 }
 
 .pure-form .pure-input-3-4 {
     width: calc(98% - 200px);
-    min-width: 325px;
+    min-width: 300px;
     margin-right: 0.5%;
     margin-top: 10px;
     border: none !important;
