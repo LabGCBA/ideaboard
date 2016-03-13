@@ -12,6 +12,7 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(idea_params)
     @idea.persona_id = 1
+    @texto_original =  @idea.texto
 
     respond_to do |format|
       if @idea.save

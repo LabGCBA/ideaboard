@@ -1,16 +1,17 @@
 var html = $('<%= 
-    squished_text =  @idea.texto.squish
-    @idea.texto = squished_text
+    @idea.texto = @idea.texto.squish
     j(render(partial: 'ideas/idea', locals: { idea: @idea })) 
 %>');
 
 $(".ideas").prepend(html).masonry('prepended', html).masonry();
-ideaCache.push("<%= squished_text %>");
+ideaCache.push("<%= @texto_original %>");
 
 html.boxfit({
     multiline: true,
     align_center: false
 });
+
+$(this).attr('rows', '4');
 
 if ($("#new_idea .pure-input-3-4").is(":focus")) {
     $("#new_idea .pure-input-3-4").val(promptActive);
