@@ -32,10 +32,6 @@
          url('fonts/gothamrnd-light.svg#GothamRoundedLight') format('svg');
 }
 
-*::selection {
-    background: #ffc403;
-}
-
 body {
     background: #ffc403;
 }
@@ -44,6 +40,16 @@ header {
     float: left;
     position: relative;
     overflow: hidden;
+}
+
+header * {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
 }
 
 header img {
@@ -73,6 +79,10 @@ header > h1 {
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
+}
+
+section *::selection {
+    background: #ffc403;
 }
 
 #new_idea {
