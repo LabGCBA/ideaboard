@@ -2,6 +2,7 @@ ideaCache = [];
 errors = false;
 prompt = "Me gustaría...";
 promptActive = "Me gustaría "
+newIdeaTextarea = $("#new_idea .pure-input-3-4");
 
 function setSelectionRange(input, selectionStart, selectionEnd) {
     if (input.setSelectionRange) {
@@ -37,7 +38,7 @@ function notifyError(message) {
 }
 
 function validate(form) {
-    var text = $.trim(form.find(".pure-input-3-4").val());
+    var text = $.trim(newIdeaTextarea.val());
 
     if (ideaCache.indexOf(text) !== -1 || text.length === 0) {
         return false
@@ -60,33 +61,33 @@ function validate(form) {
 
 $(document).ready(function() {
     $("#new_idea .pure-button").click(function(e) {
-        var text = $.trim($("#new_idea .pure-input-3-4").val());
-        $("#new_idea .pure-input-3-4").val(text);
+        var text = $.trim(newIdeaTextarea.val());
+        newIdeaTextarea.val(text);
 
         if (validate($('#new_idea'))) {
-            autosize($('.pure-form .pure-input-3-4'));
+            autosize.update(newIdeaTextarea);
         }
         else {
             e.preventDefault();
         }
     });
 
-    $("#new_idea .pure-input-3-4").val(prompt);
-    $("#new_idea .pure-input-3-4").on("focus", function() {
+    newIdeaTextarea.val(prompt);
+    newIdeaTextarea.on("focus", function() {
         if ($(this).val() === prompt || $.trim($(this).val()).length === 0) {
             $(this).val(promptActive);
         }
 
-        autosize($('.pure-form .pure-input-3-4'));
+        autosize(newIdeaTextarea);
         setCaretToPos($(this), $(this).length);
     });
-    $("#new_idea .pure-input-3-4").blur(function() {
+    newIdeaTextarea.blur(function() {
         if ($(this).val() === promptActive || $.trim($(this).val()).length === 0) {
             $(this).val(prompt);
         };
     });
 
-    autosize($('.pure-form .pure-input-3-4'));
+    autosize(newIdeaTextarea);
 });
 
 $(window).load(function() {

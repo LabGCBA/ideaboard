@@ -1,3 +1,4 @@
+var newIdeaTextarea = $("#new_idea .pure-input-3-4");
 var html = $('<%= 
     @idea.texto = @idea.texto.squish
     j(render(partial: 'ideas/idea', locals: { idea: @idea })) 
@@ -11,11 +12,11 @@ html.boxfit({
     align_center: false
 });
 
-$(this).attr('rows', '4');
-
-if ($("#new_idea .pure-input-3-4").is(":focus")) {
-    $("#new_idea .pure-input-3-4").val(promptActive);
+if (newIdeaTextarea.is(":focus")) {
+    newIdeaTextarea.val(promptActive);
 } 
 else {
-    $("#new_idea .pure-input-3-4").val(prompt);
+    newIdeaTextarea.val(prompt);
 }
+
+autosize.update(newIdeaTextarea)
