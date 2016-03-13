@@ -100,7 +100,7 @@ $(window).load(function() {
     $grid.masonry({
         itemSelector: '.idea',
         isFitWidth: true,
-        gutter: 20,
+        gutter: 30,
         resize: true,
     });    
 });
