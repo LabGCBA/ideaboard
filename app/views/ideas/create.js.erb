@@ -1,7 +1,11 @@
-var html = $('<%= j(render(partial: 'ideas/idea', locals: { idea: @idea })) %>');
+var html = $('<%= 
+    squished_text =  @idea.texto.squish
+    @idea.texto = squished_text
+    j(render(partial: 'ideas/idea', locals: { idea: @idea })) 
+%>');
 
-$(".ideas").prepend(html).masonry('prepended', html);
-ideaCache.push("<%= @idea.texto %>");
+$(".ideas").prepend(html).masonry('prepended', html).masonry();
+ideaCache.push("<%= squished_text %>");
 
 html.boxfit({
     multiline: true,
