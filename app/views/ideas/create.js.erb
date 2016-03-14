@@ -1,11 +1,10 @@
 var newIdeaTextarea = $("#new_idea .pure-input-3-4");
 var html = $('<%= 
-    @idea.texto = @idea.texto.squish
     j(render(partial: 'ideas/idea', locals: { idea: @idea })) 
 %>');
 
 $(".ideas").prepend(html).masonry('prepended', html).masonry();
-ideaCache.push("<%= j @texto_original %>");
+ideaCache.push("<%= j @idea.texto %>");
 
 html.boxfit({
     multiline: true,
