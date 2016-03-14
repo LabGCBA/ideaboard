@@ -40,10 +40,6 @@ gem 'masonry-rails'
 
 gem 'acts-as-taggable-on', '>= 2.3.1'
 
-gem 'autoprefixer-rails'
-
-gem 'therubyracer'
-
 gem 'devise'
 
 gem 'thumbs_up'
