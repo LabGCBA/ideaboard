@@ -77,7 +77,6 @@ header > h1 {
 
 .form {
     margin-top: 20px;
-    margin-bottom: 20px;
     width: 100%;
 }
 
@@ -90,7 +89,7 @@ section *::selection {
 }
 
 .pure-form {
-    margin: 0 1.3%;
+    margin: 0 1.35%;
     display: block !important;
 }
 
