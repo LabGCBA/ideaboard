@@ -5,7 +5,7 @@ var html = $('<%=
 %>');
 
 $(".ideas").prepend(html).masonry('prepended', html).masonry();
-ideaCache.push("<%= @texto_original %>");
+ideaCache.push("<%= j @texto_original %>");
 
 html.boxfit({
     multiline: true,
