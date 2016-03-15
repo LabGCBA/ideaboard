@@ -33,6 +33,7 @@ Persona.create(nombre: "Laurel Lance", email: "laurel@lance.com", direccion: Dir
 Persona.create(nombre: "Felicity Smoak", email: "felicity@smoak.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
 Persona.create(nombre: "Iris West", email: "iris@west.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
 Persona.create(nombre: "Barry Allen", email: "barry@allen.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
+Persona.create(nombre: "Admin", email: "admin@mail.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678, admin: true)
 
 personas = Persona.count
 

@@ -269,7 +269,8 @@ Devise.setup do |config|
         client_options: {
             port: 443,
             scheme: "https",
-            host: "buenosaires.gob.ar/",
+            #host: "buenosaires.gob.ar/",
+            host: "id.buenosaires.gob.ar/accounts/login/",
             identifier: "45604391",
             secret: "6e9fa20f9a5a41069ba26da7e39e1ebb",
             redirect_uri: "localhost:3000",

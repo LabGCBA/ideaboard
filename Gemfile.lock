@@ -236,6 +236,7 @@ DEPENDENCIES
   jquery-rails
   masonry-rails
   mysql2
+  omniauth
   omniauth-openid-connect
   protected_attributes
   pure-css-rails

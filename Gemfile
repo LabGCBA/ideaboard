@@ -7,13 +7,13 @@ gem 'rails', '4.2.5.2'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'mysql2'
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -45,6 +45,8 @@ gem 'devise'
 gem 'thumbs_up'
 
 gem 'protected_attributes'
+
+gem 'omniauth'
 
 gem 'omniauth-openid-connect'
 

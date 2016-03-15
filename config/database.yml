@@ -13,8 +13,9 @@ development:
   <<: *default
   database: ideaboard
   username: root
-  password: r00t
+  password: mysql
   host: localhost
+  socket: /Applications/AMPPS/var/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -30,5 +31,6 @@ production:
   <<: *default
   database: ideaboard
   username: root
-  password: r00t
+  password: mysql
   host: localhost
+  socket: /Applications/AMPPS/var/mysql.sock
