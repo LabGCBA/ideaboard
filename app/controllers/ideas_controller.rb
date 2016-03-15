@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_persona!, only: [:edit, :update, :destroy]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :unvote]
+  before_action :authenticate_persona!, only: [:edit, :update, :destroy, :vote, :unvote]
   
   def index
     @ideas = Idea.order("created_at DESC").all
@@ -28,6 +28,11 @@ class IdeasController < ApplicationController
   end
   
   def show
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { head :no_content }
+      format.js
+    end
   end
   
   def edit
@@ -56,6 +61,18 @@ class IdeasController < ApplicationController
     end
   end
   
+  def vote
+    current_persona.vote_exclusively_for(@idea) unless current_persona.voted_for?(@idea)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { head :no_content }
+      format.js
+    end
+  end
+  
+  def unvote
+    current_persona.unvote_for(@idea) if current_persona.voted_for?(@idea)
+  end
   
   private
   

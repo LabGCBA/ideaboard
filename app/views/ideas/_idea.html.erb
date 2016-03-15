@@ -7,8 +7,13 @@
                     <div class="area"><%= idea.persona.direccion.nombre %></div>
                 </aside>
                 <aside class="actionables">
-                    <a href=""><i class="icon-heart icon-2x"></i>0</a>
-                    <a href=""><i class="icon-comment icon-2x"></i>0</a>
+                    <div class="votar">
+                        <%= link_to(vote_idea_path(idea), method: :post) do %>
+                            <img src="<%= image_path("corazon.svg") %>">
+                        <% end %>
+                        <span class="votos"><%= idea.votes_for %></span>
+                    </div>
+                    
                 </aside>
             </article>
                         
