@@ -13,7 +13,7 @@ development:
   <<: *default
   database: ideaboard
   username: root
-  password: mysql
+  password: r00t
   host: localhost
   socket: /Applications/AMPPS/var/mysql.sock
 
@@ -31,6 +31,6 @@ production:
   <<: *default
   database: ideaboard
   username: root
-  password: mysql
+  password: r00t
   host: localhost
   socket: /Applications/AMPPS/var/mysql.sock
