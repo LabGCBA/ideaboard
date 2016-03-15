@@ -3,7 +3,8 @@ var html = $('<%=
     j(render(partial: 'ideas/idea', locals: { idea: @idea })) 
 %>');
 
-$(".ideas").prepend(html).masonry('prepended', html).masonry();
+$(".ideas").append(html).isotope('appended', html).isotope('layout');
+
 ideaCache.push("<%= j @idea.texto %>");
 
 html.boxfit({
