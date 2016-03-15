@@ -14,7 +14,7 @@ development:
   <<: *default
   database: ideaboard
   username: root
-  password: r00t
+  password: mysql
   host: localhost
   socket: /Applications/AMPPS/var/mysql.sock
 
