@@ -2,5 +2,13 @@
                 <div class="content">
                     <span class="text"><%= idea.texto %></span>
                 </div>
+                <aside class="metadata">
+                    <div class="nombre"><%= idea.persona.nombre %></div>
+                    <div class="area"><%= idea.persona.direccion.nombre %></div>
+                </aside>
+                <aside class="actionables">
+                    <a href=""><i class="icon-heart icon-2x"></i>0</a>
+                    <a href=""><i class="icon-comment icon-2x"></i>0</a>
+                </aside>
             </article>
                         
