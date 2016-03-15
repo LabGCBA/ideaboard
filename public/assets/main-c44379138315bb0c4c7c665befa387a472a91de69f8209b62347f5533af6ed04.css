@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'GothamRoundedBold';
-    src: url('fonts/gothamrnd-bold.eot');
-    src: url('fonts/gothamrnd-bold.eot') format('embedded-opentype'),
-         url('fonts/gothamrnd-bold.woff') format('woff'),
-         url('fonts/gothamrnd-bold.ttf') format('truetype'),
-         url('fonts/gothamrnd-bold.svg#GothamRoundedBold') format('svg');
+    src: font-url('fonts/gothamrnd-bold.eot');
+    src: font-url('fonts/gothamrnd-bold.eot') format('embedded-opentype'),
+         font-url('fonts/gothamrnd-bold.woff') format('woff'),
+         font-url('fonts/gothamrnd-bold.ttf') format('truetype'),
+         font-url('fonts/gothamrnd-bold.svg#GothamRoundedBold') format('svg');
 }
 
 @font-face {
@@ -25,11 +25,11 @@
 }
 @font-face {
     font-family: 'GothamRoundedLight';
-    src: url('fonts/gothamrnd-light.eot');
-    src: url('fonts/gothamrnd-light.eot') format('embedded-opentype'),
-         url('fonts/gothamrnd-light.woff') format('woff'),
-         url('fonts/gothamrnd-light.ttf') format('truetype'),
-         url('fonts/gothamrnd-light.svg#GothamRoundedLight') format('svg');
+    src: font-url('fonts/gothamrnd-light.eot');
+    src: font-url('fonts/gothamrnd-light.eot') format('embedded-opentype'),
+         font-url('fonts/gothamrnd-light.woff') format('woff'),
+         font-url('fonts/gothamrnd-light.ttf') format('truetype'),
+         font-url('fonts/gothamrnd-light.svg#GothamRoundedLight') format('svg');
 }
 
 body {
