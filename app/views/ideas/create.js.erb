@@ -7,10 +7,10 @@ $(".ideas").prepend(html).isotope('prepended', html).isotope('layout');
 
 ideaCache.push("<%= j @idea.texto %>");
 
-html.boxfit({
+$('.idea .content').boxfit({
     multiline: true,
     align_center: false
-});
+});    
 
 if (newIdeaTextarea.is(":focus")) {
     newIdeaTextarea.val(promptActive);
