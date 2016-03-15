@@ -28,5 +28,11 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+    persona = current_persona # guest user (not logged in)
+    if persona.admin?
+      can :manage, :all
+    else
+      can :vote, :all
+    end
   end
 end

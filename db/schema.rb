@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160309124841) do
   create_table "personas", force: :cascade do |t|
     t.string   "baid",                   limit: 255
     t.string   "nombre",                 limit: 250
+    t.boolean  "mod",                                default: false
     t.boolean  "admin",                              default: false
     t.integer  "direccion_id",           limit: 4
     t.datetime "created_at",                                         null: false

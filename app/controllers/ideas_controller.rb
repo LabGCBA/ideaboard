@@ -62,16 +62,17 @@ class IdeasController < ApplicationController
   end
   
   def vote
-    current_persona.vote_exclusively_for(@idea) unless current_persona.voted_for?(@idea)
+    if current_persona.voted_for?(@idea)
+      current_persona.unvote_for(@idea)
+    else 
+      current_persona.vote_exclusively_for(@idea)
+    end
+
     respond_to do |format|
       format.html { redirect_to root_path }
       format.json { head :no_content }
       format.js
     end
-  end
-  
-  def unvote
-    current_persona.unvote_for(@idea) if current_persona.voted_for?(@idea)
   end
   
   private
