@@ -262,4 +262,17 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+    config.omniauth :openid_connect, {
+        name: :BAid,
+        scope: [:openid, :email, :profile, :address],
+        response_type: :code,
+        client_options: {
+            port: 443,
+            scheme: "https",
+            host: "buenosaires.gob.ar/",
+            identifier: "45604391",
+            secret: "6e9fa20f9a5a41069ba26da7e39e1ebb",
+            redirect_uri: "localhost:3000",
+        },
+    }
 end
