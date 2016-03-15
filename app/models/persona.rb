@@ -7,4 +7,13 @@ class Persona < ActiveRecord::Base
   belongs_to :direccion
   attr_accessible :nombre, :email, :direccion, :password, :identity_url
   acts_as_voter
+  
+  def self.from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.baid = auth.uid.to_s
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+      end
+  end
 end
