@@ -108,7 +108,7 @@ $(window).load(function() {
         getSortData: {
             votos: '.votos parseInt', // text from querySelector
         },
-        sortBy: 'votos',
-        sortAscending: false,
+        //sortBy: 'votos',
+        //sortAscending: false,
     });    
 });

@@ -3,7 +3,7 @@ var html = $('<%=
     j(render(partial: 'ideas/idea', locals: { idea: @idea })) 
 %>');
 
-$(".ideas").append(html).isotope('appended', html).isotope('layout');
+$(".ideas").prepend(html).isotope('prepended', html).isotope('layout');
 
 ideaCache.push("<%= j @idea.texto %>");
 
