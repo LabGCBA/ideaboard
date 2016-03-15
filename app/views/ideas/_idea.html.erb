@@ -8,7 +8,7 @@
                 </aside>
                 <aside class="actionables">
                     <div class="votar">
-                        <%= link_to(vote_idea_path(idea), method: :post) do %>
+                        <%= link_to(vote_idea_path(idea), method: :post, :remote => true) do %>
                             <img src="<%= image_path("corazon.svg") %>">
                         <% end %>
                         <span class="votos"><%= idea.votes_for %></span>
