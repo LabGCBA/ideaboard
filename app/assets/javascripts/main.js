@@ -98,10 +98,17 @@ $(window).load(function() {
         align_center: false
     });    
 
-    $grid.masonry({
+    $grid.isotope({
         itemSelector: '.idea',
-        isFitWidth: true,
-        gutter: 30,
-        resize: true,
+        masonry: {
+            isFitWidth: true,
+            gutter: 30,
+            resize: true,
+        },
+        getSortData: {
+            votos: '.votos parseInt', // text from querySelector
+        },
+        sortBy: 'votos',
+        sortAscending: false,
     });    
 });

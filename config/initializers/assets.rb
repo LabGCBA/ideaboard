@@ -12,5 +12,6 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( main.css )
 Rails.application.config.assets.precompile += %w( masonry.pkgd.min.js )
+Rails.application.config.assets.precompile += %w( isotope.pkgd.min.js )
 Rails.application.config.assets.precompile += %w( jquery.boxfit.min.js )
 Rails.application.config.assets.precompile += %w( main.js )
