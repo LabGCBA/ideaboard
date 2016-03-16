@@ -92,12 +92,7 @@ $(document).ready(function() {
 
 $(window).load(function() {
     var $grid = $('.ideas');
-
-    $('.idea .content').boxfit({
-        multiline: true,
-        align_center: false
-    });    
-
+    
     $grid.isotope({
         itemSelector: '.idea',
         masonry: {
@@ -110,5 +105,10 @@ $(window).load(function() {
         },
         //sortBy: 'votos',
         //sortAscending: false,
-    });    
+    });
+    
+    $('.idea .content').boxfit({
+        multiline: true,
+        align_center: false
+    }); 
 });
