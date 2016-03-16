@@ -88,6 +88,11 @@ $(document).ready(function() {
     });
 
     autosize(newIdeaTextarea);
+    
+    $('.idea .content').boxfit({
+        multiline: true,
+        align_center: false,
+    });  
 });
 
 $(window).load(function() {
@@ -105,10 +110,5 @@ $(window).load(function() {
         },
         //sortBy: 'votos',
         //sortAscending: false,
-    });
-    
-    $('.idea .content').boxfit({
-        multiline: true,
-        align_center: false
     }); 
 });

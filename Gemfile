@@ -36,8 +36,6 @@ gem 'tzinfo-data'
 
 gem 'pure-css-rails'
 
-gem 'masonry-rails'
-
 gem 'acts-as-taggable-on', '>= 2.3.1'
 
 gem 'devise'
