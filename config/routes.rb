@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :personas
-  resources :ideas, :personas, :direcciones, :subsecretarias
-
-  resource :session, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'ideas#index'
-  post '/ideas/:id' => 'ideas#vote', as: 'vote_idea'
+  scope '/expresometro' do
+    root 'ideas#index'
+    post '/ideas/:id' => 'ideas#vote', as: 'vote_idea'
+    devise_for :personas, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+    resources :ideas, :personas, :direcciones, :subsecretarias
+    resource :session, only: [:new, :create, :destroy]
+  end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

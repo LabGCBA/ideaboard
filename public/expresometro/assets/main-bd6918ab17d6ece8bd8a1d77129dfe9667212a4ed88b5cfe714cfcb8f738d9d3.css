@@ -1,0 +1,158 @@
+@font-face {
+  font-family: 'GothamRoundedBold';
+  src: url(/expresometro/assets/fonts/gothamrnd-bold-60ab10e2feb54f965af0349f2af83cec0d6b88e8d043a5239efceb2a2392ea7e.eot);
+  src: url(/expresometro/assets/fonts/gothamrnd-bold-60ab10e2feb54f965af0349f2af83cec0d6b88e8d043a5239efceb2a2392ea7e.eot) format("embedded-opentype"), url(/expresometro/assets/fonts/gothamrnd-bold-1e5548a4e5cbf7f3ffca8b012457f5d2c8533ac01d937598dfc4c855176ccaec.woff) format("woff"), url(/expresometro/assets/fonts/gothamrnd-bold-1271c60050b5df05e473eb80e1a4c61859a7209aa607c14d223280236b3ef35a.ttf) format("truetype"), url(/expresometro/assets/fonts/gothamrnd-bold-944876b0d696e40573e4ea555336b088d054e0e8aa07073b4d0caab324ae1d32.svg#GothamRoundedBold) format("svg");
+}
+@font-face {
+  font-family: 'GothamRoundedBook';
+  src: url(/expresometro/assets/fonts/gothamrnd-book-21975cff45639720638af3bce02f30e2f129bdfc0f4857db57e9428e6a87889f.eot);
+  src: url(/expresometro/assets/fonts/gothamrnd-book-21975cff45639720638af3bce02f30e2f129bdfc0f4857db57e9428e6a87889f.eot) format("embedded-opentype"), url(/expresometro/assets/fonts/gothamrnd-book-3c1d9aad9aea984ddfcb8aed95b8eb9f6127b330da04d508c5afc7d72a18b206.woff) format("woff"), url(/expresometro/assets/fonts/gothamrnd-book-2b429dacb269d741c4ff5b41988f3fec9482690234ef6d0693b2717c25efafba.ttf) format("truetype"), url(/expresometro/assets/fonts/gothamrnd-book-17cf3826f6e35a2031f6d644facf48d260d9f8923f8a855402fa9a95cb39ce3d.svg#GothamRoundedBook) format("svg");
+}
+@font-face {
+  font-family: 'GothamRoundedMedium';
+  src: url(/expresometro/assets/fonts/gothamrnd-medium-301b1af2e42667a55fc01ce41e7380ba7099acddfeef81bff498423f5d123513.eot);
+  src: url(/expresometro/assets/fonts/gothamrnd-medium-301b1af2e42667a55fc01ce41e7380ba7099acddfeef81bff498423f5d123513.eot) format("embedded-opentype"), url(/expresometro/assets/fonts/gothamrnd-medium-e33b9ca16cf29179102f17b471cd68054c31a1b07cf20b36fbbdb742cc8a9c79.woff) format("woff"), url(/expresometro/assets/fonts/gothamrnd-medium-0f9daef704135e736b132f77a5916f33560e83692cf7d4e5f561260c576a313f.ttf) format("truetype"), url(/expresometro/assets/fonts/gothamrnd-medium-96666f369eada39705af30f557bc97a70534350fd9073ebbbaf6d7ad65666552.svg#GothamRoundedMedium) format("svg");
+}
+@font-face {
+  font-family: 'GothamRoundedLight';
+  src: url(/expresometro/assets/fonts/gothamrnd-light-1c965602bf46f8f11be7b0b75c545005e70211a64c185ba9b9e9939c8aaf4145.eot);
+  src: url(/expresometro/assets/fonts/gothamrnd-light-1c965602bf46f8f11be7b0b75c545005e70211a64c185ba9b9e9939c8aaf4145.eot) format("embedded-opentype"), url(/expresometro/assets/fonts/gothamrnd-light-0d1b0e08a8b135be534217b83f0c6d5953d109cabdd9ce9815be52af54979104.woff) format("woff"), url(/expresometro/assets/fonts/gothamrnd-light-ecaeaf1198d199eb0091ee9023331ab356dd7833f1402f647a3a3692f190ef96.ttf) format("truetype"), url(/expresometro/assets/fonts/gothamrnd-light-3de4e1e130cdfb6622ec9847bc9c423241a3fe1430b5edc3aee2412328586569.svg#GothamRoundedLight) format("svg");
+}
+/* line 35, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+body {
+  background: #ffc403;
+}
+
+/* line 39, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+header {
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 45, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+header * {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+/* line 55, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+header img {
+  position: relative;
+  top: 0;
+  width: 91%;
+  margin: 0 5%;
+}
+
+/* line 62, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+header > h1 {
+  position: absolute;
+  top: 40%;
+  z-index: 100;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 70, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+.title {
+  font-family: 'GothamRoundedLight' !important;
+  font-size: 3.2vw;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* line 78, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+.form {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* line 83, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+section *::selection {
+  background: #ffc403;
+}
+
+/* line 87, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+#new_idea {
+  margin: 0 5%;
+}
+
+/* line 91, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+.pure-form {
+  margin: 0 1.35%;
+  display: block !important;
+}
+
+/* line 96, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+.pure-form fieldset {
+  width: 100%;
+  height: 100%;
+  display: table;
+  text-align: center;
+}
+
+/* line 103, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+.pure-form fieldset input {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 108, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+.pure-form .pure-input-3-4 {
+  width: calc(98% - 200px);
+  min-width: 365px;
+  padding: 0.5em 1em;
+  margin-right: 1%;
+  margin-top: 10px;
+  border: none !important;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  font-family: 'GothamRoundedMedium';
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 28px;
+  resize: none;
+}
+
+/* line 124, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+.pure-form .pure-button {
+  width: 200px;
+  margin-top: 10px;
+  background: black;
+  border-radius: 0px;
+  font-family: 'GothamRoundedMedium';
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0.1em;
+}
+
+/* line 137, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+.pure-form .pure-button:hover {
+  color: #ffc403;
+}
+
+/* line 141, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+.noty_bar {
+  background: black !important;
+  font-family: 'GothamRoundedMedium';
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-top: 5px;
+}
+
+/* line 152, /home/ramiro/apps/ideaboard/app/assets/stylesheets/main.scss */
+#noty_top_layout_container li {
+  border: none !important;
+  box-shadow: none !important;
+}
