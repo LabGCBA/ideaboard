@@ -59,6 +59,13 @@ function validate(form) {
     return true;
 }
 
+function boxfit(element) {
+    element.boxfit({
+        multiline: true,
+        align_center: false,
+    });  
+}
+
 $(document).ready(function() {
     $("#new_idea .pure-button").click(function(e) {
         var text = $.trim(newIdeaTextarea.val());
@@ -88,11 +95,7 @@ $(document).ready(function() {
     });
 
     autosize(newIdeaTextarea);
-    
-    $('.idea .content').boxfit({
-        multiline: true,
-        align_center: false,
-    });  
+    boxfit($('.idea .content'));
 });
 
 $(window).load(function() {
@@ -111,4 +114,6 @@ $(window).load(function() {
         //sortBy: 'votos',
         //sortAscending: false,
     }); 
+    
+    boxfit($('.idea .content'));
 });
