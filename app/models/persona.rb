@@ -5,8 +5,9 @@ class Persona < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :ideas, dependent: :destroy
   belongs_to :direccion
-  attr_accessible :nombre, :email, :direccion, :password, :identity_url
+  # attr_accessible :nombre, :email, :direccion, :password, :identity_url
   acts_as_voter
+  validates :email, uniqueness: true
   
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
