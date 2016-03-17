@@ -12,9 +12,6 @@ Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-Rails.application.config.assets.precompile += %w( main.css )
-Rails.application.config.assets.precompile += %w( masonry.pkgd.min.js )
-Rails.application.config.assets.precompile += %w( isotope.pkgd.min.js )
-Rails.application.config.assets.precompile += %w( jquery.boxfit.min.js )
-Rails.application.config.assets.precompile += %w( main.js )
+Rails.application.config.assets.precompile += %w( .css )
+Rails.application.config.assets.precompile += %w( .js )
 Rails.application.config.assets.precompile += %w( .svg .eot .woff .ttf )

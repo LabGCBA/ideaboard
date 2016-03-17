@@ -80,6 +80,12 @@ header > h1 {
     width: 100%;
 }
 
+section * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 section *::selection {
     background: #ffc403;
 }

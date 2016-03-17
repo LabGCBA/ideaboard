@@ -3,6 +3,7 @@ errors = false;
 prompt = "Me gustaría...";
 promptActive = "Me gustaría "
 newIdeaTextarea = $("#new_idea .pure-input-3-4");
+var $grid = $('.ideas');
 
 function setSelectionRange(input, selectionStart, selectionEnd) {
     if (input.setSelectionRange) {
@@ -59,11 +60,22 @@ function validate(form) {
     return true;
 }
 
-function boxfit(element) {
-    element.boxfit({
-        multiline: true,
-        align_center: false,
-    });  
+function deFitText() {
+    $('.idea .content span').each(function() {
+        $(this).replaceWith($(this).text());
+    });
+    $('.idea .content').each(function() {
+        $(this).css('display', '');
+    });
+}
+
+function reFitText() {
+    $(".idea .content").each(function() {
+        $(this).boxfit({
+            multiline: true,
+            align_center: false,
+        }); 
+    });
 }
 
 $(document).ready(function() {
@@ -94,26 +106,34 @@ $(document).ready(function() {
         };
     });
 
+    $(window).bind('resize', function() {
+        if ($('.boxfitted').length) {
+            deFitText();
+        }
+        $grid.isotope('layout');
+    });
+
     autosize(newIdeaTextarea);
-    boxfit($('.idea .content'));
 });
 
 $(window).load(function() {
-    var $grid = $('.ideas');
-    
+    $grid.on('layoutComplete', function() {
+        reFitText();
+    });
+
     $grid.isotope({
         itemSelector: '.idea',
+        percentPosition: true,
+        //layoutMode: 'packery',
         masonry: {
-            isFitWidth: true,
-            gutter: 30,
-            resize: true,
+            gutter: '.gutter-sizer',
+            columnWidth: '.idea',
+            //resize: true,
         },
-        getSortData: {
+        /* getSortData: {
             votos: '.votos parseInt', // text from querySelector
-        },
+        }, */
         //sortBy: 'votos',
         //sortAscending: false,
-    }); 
-    
-    boxfit($('.idea .content'));
+    }).isotope('layout'); 
 });

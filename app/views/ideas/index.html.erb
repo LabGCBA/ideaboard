@@ -14,6 +14,8 @@
         </section>
         <section class="grid pure-u-1 ideas-wrapper">
             <div class="ideas">
+                <div class="item-sizer"></div>
+                <div class="gutter-sizer"></div>
                 <% @ideas.each do |idea| %>
                     <%= render partial: 'idea', locals: { idea: idea} %>
                 <% end %>
