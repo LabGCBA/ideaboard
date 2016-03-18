@@ -92,8 +92,8 @@ $(document).ready(function() {
     });
 
     newIdeaTextarea.val(prompt);
-    newIdeaTextarea.on("focus", function() {
-        if ($(this).val() === prompt || $.trim($(this).val()).length === 0) {
+    newIdeaTextarea.focus(function() {
+        if ($.trim($(this).val()) === prompt || $.trim($(this).val()).length === 0) {
             $(this).val(promptActive);
         }
 
@@ -101,9 +101,11 @@ $(document).ready(function() {
         setCaretToPos($(this), $(this).length);
     });
     newIdeaTextarea.blur(function() {
-        if ($(this).val() === promptActive || $.trim($(this).val()).length === 0) {
+        if ($.trim($(this).val()) === promptActive || $.trim($(this).val()).length === 0) {
             $(this).val(prompt);
         };
+        
+        autosize(newIdeaTextarea);
     });
 
     $(window).bind('resize', function() {

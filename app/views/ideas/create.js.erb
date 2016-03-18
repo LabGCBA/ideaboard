@@ -3,14 +3,14 @@ var html = $('<%=
     j(render(partial: 'ideas/idea', locals: { idea: @idea })) 
 %>');
 
-$(".ideas").prepend(html).isotope('prepended', html).isotope('layout');
-
-ideaCache.push("<%= j @idea.texto %>");
-
-$('.idea .content').boxfit({
+html.boxfit({
     multiline: true,
     align_center: false
-});    
+});  
+
+$(".ideas").prepend(html).isotope('prepended', html).isotope('layout');
+
+ideaCache.push("<%= j @idea.texto %>");  
 
 if (newIdeaTextarea.is(":focus")) {
     newIdeaTextarea.val(promptActive);
