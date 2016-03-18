@@ -3,7 +3,7 @@ errors = false;
 prompt = "Me gustaría...";
 promptActive = "Me gustaría "
 newIdeaTextarea = $("#new_idea .pure-input-3-4");
-var $grid = $('.ideas');
+$grid = $('.ideas');
 
 function setSelectionRange(input, selectionStart, selectionEnd) {
     if (input.setSelectionRange) {
@@ -108,6 +108,10 @@ $(document).ready(function() {
         autosize(newIdeaTextarea);
     });
 
+    $('a.categoria').click(function(e) {
+        return false;
+    });     
+
     $(window).bind('resize', function() {
         if ($('.boxfitted').length) {
             deFitText();
@@ -115,13 +119,9 @@ $(document).ready(function() {
         $grid.isotope('layout');
     });
 
-    autosize(newIdeaTextarea);
-});
-
-$(window).load(function() {
     $grid.on('layoutComplete', function() {
         reFitText();
-    });
+    });    
 
     $grid.isotope({
         itemSelector: '.idea',
@@ -137,5 +137,7 @@ $(window).load(function() {
         }, */
         //sortBy: 'votos',
         //sortAscending: false,
-    }).isotope('layout'); 
+    }).isotope('layout');     
+
+    autosize(newIdeaTextarea);
 });
