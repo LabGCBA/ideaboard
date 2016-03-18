@@ -4,6 +4,7 @@ class CreateIdeas < ActiveRecord::Migration
       t.text :texto, limit: 300, null: false
       
       t.references :persona
+      t.references :categoria
       t.timestamps null: false
     end
   end
