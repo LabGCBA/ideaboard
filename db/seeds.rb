@@ -37,10 +37,18 @@ Persona.create(nombre: "Admin", email: "admin@mail.com", direccion: Direccion.fi
 
 personas = Persona.count
 
+Categoria.create(nombre: "Comida")
+Categoria.create(nombre: "Capacitaciones")
+Categoria.create(nombre: "Recreación")
+Categoria.create(nombre: "Edificio")
+Categoria.create(nombre: "Comunicación")
+Categoria.create(nombre: "Beneficios")
+Categoria.create(nombre: "Insumos")
+
 ideas.times do |i|
-  Idea.create(texto: "Quisiera que haya dispensers de alcohol en gel", persona: Persona.find(1 + rand(personas).round))
-  Idea.create(texto: "Una parrilla en la terraza!", persona: Persona.find(1 + rand(personas).round))
-  Idea.create(texto: "Me gustaría que no falte detergente en la cocina.", persona: Persona.find(1 + rand(personas).round))
-  Idea.create(texto: "Free snacks!", persona: Persona.find(1 + rand(personas).round))
-  Idea.create(texto: "Estaría bueno que pongan un tele en el comedor...!", persona: Persona.find(1 + rand(personas).round))
+  Idea.create(texto: "Quisiera que haya dispensers de alcohol en gel", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(4))
+  Idea.create(texto: "Una parrilla en la terraza!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(4))
+  Idea.create(texto: "Me gustaría que no falte detergente en la cocina.", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(7))
+  Idea.create(texto: "Free snacks!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(6))
+  Idea.create(texto: "Estaría bueno que pongan un tele en el comedor...!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(4))
 end

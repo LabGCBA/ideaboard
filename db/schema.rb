@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20160318182817) do
   end
 
   create_table "ideas", force: :cascade do |t|
-    t.text     "texto",      limit: 65535, null: false
-    t.integer  "persona_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "texto",        limit: 65535, null: false
+    t.integer  "persona_id",   limit: 4
+    t.integer  "categoria_id", limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "personas", force: :cascade do |t|
