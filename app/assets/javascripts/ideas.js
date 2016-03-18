@@ -61,8 +61,8 @@ function validate(form) {
 }
 
 function deFitText() {
-    $('.idea .content span').each(function() {
-        $(this).replaceWith($(this).text());
+    $('.idea .content .boxfitted').each(function() {
+        $(this).replaceWith($(this).contents());
     });
     $('.idea .content').each(function() {
         $(this).css('display', '');

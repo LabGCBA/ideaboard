@@ -1,6 +1,7 @@
             <article id="idea_<%= idea.id %>" class="idea">
                 <div class="content">
                     <%= idea.texto %>
+                    <span class="categoria <%= idea.categoria.nombre.downcase %>"><%= " #" + idea.categoria.nombre.downcase %></span>
                 </div>
                 <aside class="metadata">
                     <div class="nombre"><%= idea.persona.nombre %></div>
