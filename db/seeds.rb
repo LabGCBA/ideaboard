@@ -37,7 +37,7 @@ Persona.create(nombre: "Admin", email: "admin@mail.com", direccion: Direccion.fi
 
 personas = Persona.count
 
-Categoria.create(nombre: "Comida")
+Categoria.create(nombre: "Comida/Bebida")
 Categoria.create(nombre: "Capacitaciones")
 Categoria.create(nombre: "Recreación")
 Categoria.create(nombre: "Edificio")
