@@ -101,7 +101,7 @@ $(document).ready(function() {
         setCaretToPos($(this), $(this).length);
     });
     newIdeaTextarea.blur(function() {
-        if ($.trim($(this).val()) === promptActive || $.trim($(this).val()).length === 0) {
+        if (($.trim($(this).val()) + " ") === promptActive || $.trim($(this).val()).length === 0) {
             $(this).val(prompt);
         };
         
