@@ -123,6 +123,10 @@ $(document).ready(function() {
         reFitText();
     });    
 
+    autosize(newIdeaTextarea);
+});
+
+$(window).bind('load', function() {
     $grid.isotope({
         itemSelector: '.idea',
         percentPosition: true,
@@ -137,7 +141,5 @@ $(document).ready(function() {
         }, */
         //sortBy: 'votos',
         //sortAscending: false,
-    }).isotope('layout');     
-
-    autosize(newIdeaTextarea);
+    });  
 });
