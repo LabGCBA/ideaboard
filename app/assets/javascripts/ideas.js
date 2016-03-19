@@ -38,7 +38,7 @@ function notifyError(message) {
     setTimeout(function(){ $.noty.closeAll() ; }, 1500);
 }
 
-function validate(form) {
+function validateForm(form) {
     var text = $.trim(newIdeaTextarea.val());
 
     if (ideaCache.indexOf(text) !== -1 || text.length === 0) {
@@ -60,7 +60,7 @@ function validate(form) {
     return true;
 }
 
-function deFitText() {
+function deFitIdeaText() {
     $('.idea .content .boxfitted').each(function() {
         $(this).replaceWith($(this).contents());
     });
@@ -69,7 +69,7 @@ function deFitText() {
     });
 }
 
-function reFitText() {
+function reFitIdeaText() {
     $(".idea .content").each(function() {
         $(this).boxfit({
             multiline: true,
@@ -78,20 +78,22 @@ function reFitText() {
     });
 }
 
-$(document).ready(function() {
+function documentReadyEvents() {
+    
+    // Idea submit button click
     $("#new_idea .pure-button").click(function(e) {
         var text = $.trim(newIdeaTextarea.val());
         newIdeaTextarea.val(text);
 
-        if (validate($('#new_idea'))) {
+        if (validateForm($('#new_idea'))) {
             autosize.update(newIdeaTextarea);
         }
         else {
             e.preventDefault();
         }
     });
-
-    newIdeaTextarea.val(prompt);
+    
+    // Placeholder manager
     newIdeaTextarea.focus(function() {
         if ($.trim($(this).val()) === prompt || $.trim($(this).val()).length === 0) {
             $(this).val(promptActive);
@@ -100,6 +102,7 @@ $(document).ready(function() {
         autosize(newIdeaTextarea);
         setCaretToPos($(this), $(this).length);
     });
+    
     newIdeaTextarea.blur(function() {
         if (($.trim($(this).val()) + " ") === promptActive || $.trim($(this).val()).length === 0) {
             $(this).val(prompt);
@@ -107,22 +110,29 @@ $(document).ready(function() {
         
         autosize(newIdeaTextarea);
     });
-
+    
+    // Category filter
     $('a.categoria').click(function(e) {
         return false;
     });     
-
+    
+    // Recalculate grid on browser resize
     $(window).bind('resize', function() {
         if ($('.boxfitted').length) {
-            deFitText();
+            deFitIdeaText();
         }
         $grid.isotope('layout');
     });
 
     $grid.on('layoutComplete', function() {
-        reFitText();
-    });    
+        reFitIdeaText();
+    });
+}
 
+$(document).ready(function() {
+    documentReadyEvents();
+    
+    newIdeaTextarea.val(prompt);
     autosize(newIdeaTextarea);
 });
 
