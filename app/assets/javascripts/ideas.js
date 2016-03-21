@@ -113,7 +113,10 @@ function documentReadyEvents() {
     
     // Category filter
     $('a.categoria').click(function(e) {
-        return false;
+        var filterValue = $(this).parents('.idea').attr('data-filter');
+        $grid.isotope({ filter: filterValue });
+        
+        return false; // Void the click
     });     
     
     // Recalculate grid on browser resize

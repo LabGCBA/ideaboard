@@ -1,6 +1,6 @@
-            <article id="idea_<%= idea.id %>" class="idea">
+            <article id="idea_<%= idea.id %>" class="idea <%= idea.categoria.nombre.downcase %>" data-filter="<%= '.' + idea.categoria.nombre.downcase %>">
                 <aside class="tag">
-                    <a href="" class="categoria <%= idea.categoria.nombre.downcase %>"><%= idea.categoria.nombre.downcase %></a>
+                    <a href="" class="categoria"><%= idea.categoria.nombre.downcase %></a>
                 </aside>
                 <div class="content">
                     <%= idea.texto %>
