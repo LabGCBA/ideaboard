@@ -154,5 +154,5 @@ $(window).bind('load', function() {
         }, */
         //sortBy: 'votos',
         //sortAscending: false,
-    }).isotope('layout'); 
+    }); 
 });
