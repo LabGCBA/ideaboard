@@ -100,6 +100,8 @@ function documentReadyEvents() {
 
         if (validateForm($('#new_idea'))) {
             autosize.update(newIdeaTextarea);
+            $('.etiquetas-slider a').removeClass('etiqueta-active');
+            $('.etiquetas-slider-wrapper').removeClass('slideDown').addClass('slideUp');
         }
         else {
             e.preventDefault();
@@ -110,6 +112,7 @@ function documentReadyEvents() {
     newIdeaTextarea.focus(function() {
         if ($.trim($(this).val()) === prompt || $.trim($(this).val()).length === 0) {
             $(this).val(promptActive);
+            $('.etiquetas-slider-wrapper').removeClass('slideUp').addClass('slideDown');
         }
 
         autosize(newIdeaTextarea);
@@ -119,6 +122,9 @@ function documentReadyEvents() {
     newIdeaTextarea.blur(function() {
         if (($.trim($(this).val()) + " ") === promptActive || $.trim($(this).val()).length === 0) {
             $(this).val(prompt);
+            if ($('#new_idea').find('#idea_categoria').val()) {
+                $('.etiquetas-slider-wrapper').removeClass('slideDown').addClass('slideUp');
+            }
         };
         
         autosize(newIdeaTextarea);
@@ -157,6 +163,16 @@ function documentReadyEvents() {
         return false;
     });
 
+    $('.etiquetas-slider a').click(function() {
+        var categoria = $(this).attr('data-category');
+        $('#new_idea').find('#idea_categoria').val(categoria);
+
+        $(this).siblings().removeClass('etiqueta-active');
+        $(this).addClass('etiqueta-active');
+
+        return false;
+    });
+
     
     // Recalculate grid on browser resize
     $(window).bind('resize', function() {
@@ -173,7 +189,8 @@ function documentReadyEvents() {
 
 $(document).ready(function() {
     documentReadyEvents();
-    
+
+    $('.etiquetas-slider-wrapper').addClass('slideUp');
     newIdeaTextarea.val(prompt);
     autosize(newIdeaTextarea);
 });
