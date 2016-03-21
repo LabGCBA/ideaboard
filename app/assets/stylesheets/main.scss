@@ -15,6 +15,7 @@
          font-url('fonts/gothamrnd-book.ttf') format('truetype'),
          font-url('fonts/gothamrnd-book.svg#GothamRoundedBook') format('svg');
 }
+
 @font-face {
     font-family: 'GothamRoundedMedium';
     src: font-url('fonts/gothamrnd-medium.eot');
@@ -23,6 +24,7 @@
          font-url('fonts/gothamrnd-medium.ttf') format('truetype'),
          font-url('fonts/gothamrnd-medium.svg#GothamRoundedMedium') format('svg');
 }
+
 @font-face {
     font-family: 'GothamRoundedLight';
     src: font-url('fonts/gothamrnd-light.eot');
@@ -67,17 +69,8 @@ header > h1 {
     width: 100%;
 }
 
-.title {
-    font-family: 'GothamRoundedLight' !important;
-    font-size: 3.2vw;
-    font-weight: 100;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.form {
-    margin-top: 20px;
-    width: 100%;
+section {
+    margin: 0 5%;
 }
 
 section * {
@@ -90,8 +83,17 @@ section *::selection {
     background: #ffc403;
 }
 
-#new_idea {
-    margin: 0 5%;
+.title {
+    font-family: 'GothamRoundedLight' !important;
+    font-size: 3.2vw;
+    font-weight: 100;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.form {
+    margin-top: 20px;
+    width: 100%;
 }
 
 .pure-form {
