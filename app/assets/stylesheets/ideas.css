@@ -97,10 +97,10 @@ article.idea .actionables a img {
 }
 
 article.idea .actionables .votos {
+    display: inline-block;
     font-family: 'GothamRoundedBold' !important;
     font-size: 18px;
 	line-height: 18px;
-    display: inline-block;
     vertical-align: middle;
 }
 
