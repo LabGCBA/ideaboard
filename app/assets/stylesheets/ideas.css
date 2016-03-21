@@ -17,19 +17,6 @@
   clear: both;
 }
 
-article.idea {
-    float: left;
-    background: #fff;
-    min-height: 100px;
-    padding: 20px 20px 0px 20px;
-    margin-top: 20px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    font-family: 'GothamRoundedMedium';
-	font-style: normal;
-	font-variant: normal;
-}
-
 .gutter-sizer {
     width: 2%;
 }
@@ -56,13 +43,26 @@ article.idea {
     }
 }
 
+article.idea {
+    float: left;
+    background: #fff;
+    min-height: 100px;
+    padding: 20px 20px 0px 20px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    font-family: 'GothamRoundedMedium';
+	font-style: normal;
+	font-variant: normal;
+}
+
 article.idea:before {
     content: ' ';
     display: table;
 }
 
 article.idea .content {
-    min-height: 100px;
+    height: 100px;
     margin-bottom: 20px;
     font-weight: 500;
 }
