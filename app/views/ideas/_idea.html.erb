@@ -1,4 +1,4 @@
-            <article id="idea_<%= idea.id %>" class="idea <%= idea.categoria.nombre.downcase %>" data-filter="<%= '.' + idea.categoria.nombre.downcase %>">
+            <article id="idea_<%= idea.id %>" class="idea <%= idea.categoria.nombre.downcase %>" data-filter="<%= '.' + idea.categoria.nombre.downcase %>" data-date="<%= idea.created_at %>">
                 <aside class="tag">
                     <a href="" class="categoria"><%= idea.categoria.nombre.downcase %></a>
                 </aside>

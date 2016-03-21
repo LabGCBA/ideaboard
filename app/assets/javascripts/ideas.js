@@ -127,6 +127,7 @@ function documentReadyEvents() {
     /////////////////////////////////////////////////////////////////
     //  FILTERS
     /////////////////////////////////////////////////////////////////
+
         $('.filtros .todas').click(function(e) {
             $grid.isotope({ filter: '*' });
             return false; // Void the click
@@ -135,7 +136,12 @@ function documentReadyEvents() {
         $('.filtros .mas-votadas').click(function(e) {
             $grid.isotope({ sortBy : 'votos' });
             return false; // Void the click
-        });    
+        });
+
+        $('.filtros .mas-nuevas').click(function(e) {
+            $grid.isotope({ sortBy : 'fecha' });
+            return false; // Void the click
+        });     
 
         $('.etiquetas a').click(function(e) {
             return filterByTag(this, true);
@@ -176,16 +182,20 @@ $(window).bind('load', function() {
     $grid.isotope({
         itemSelector: '.idea',
         percentPosition: true,
-        //layoutMode: 'packery',
+        // isInitLayout: false,
+        // layoutMode: 'packery',
         masonry: {
             gutter: '.gutter-sizer',
             columnWidth: '.idea',
-            //resize: true,
+            // resize: true,
         },
         getSortData: {
             votos: '.votos parseInt', // text from querySelector
+            fecha: function(element) {
+                return Date.parse($(element).attr('data-date'));
+            }
         },
-        //sortBy: 'votos',
-        //sortAscending: false,
-    }).isotope('layout');; 
+        // sortBy: 'votos',
+        // sortAscending: false,
+    }).isotope('layout');
 });
