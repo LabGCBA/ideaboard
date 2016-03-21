@@ -78,6 +78,19 @@ function reFitIdeaText() {
     });
 }
 
+function filterByTag(element, nav) {
+    if (nav) {
+        var filterValue = $(element).attr('data-filter');
+    }
+    else {
+        var filterValue = $(element).parents('.idea').attr('data-filter');
+    }
+    
+    $grid.isotope({ filter: filterValue });
+    
+    return false; // Void the click
+}
+
 function documentReadyEvents() {
     
     // Idea submit button click
@@ -110,21 +123,41 @@ function documentReadyEvents() {
         
         autosize(newIdeaTextarea);
     });
-    
-    // Category filter
-    $('a.categoria').click(function(e) {
-        var filterValue = $(this).parents('.idea').attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-        
-        return false; // Void the click
-    });     
+
+    /////////////////////////////////////////////////////////////////
+    //  FILTERS
+    /////////////////////////////////////////////////////////////////
+        $('.filtros .todas').click(function(e) {
+            $grid.isotope({ filter: '*' });
+            return false; // Void the click
+        });
+
+        $('.filtros .mas-votadas').click(function(e) {
+            $grid.isotope({ sortBy : 'votos' });
+            return false; // Void the click
+        });    
+
+        $('.etiquetas a').click(function(e) {
+            return filterByTag(this, true);
+        });
+
+        $('a.categoria').click(function(e) {
+            return filterByTag(this);
+        });
+
+    ////////////////////////////////////////////////////////////////    
+
+    $('#etiquetas-nav').click(function() {
+        return false;
+    });
+
     
     // Recalculate grid on browser resize
     $(window).bind('resize', function() {
         if ($('.boxfitted').length) {
             deFitIdeaText();
         }
-        $grid.isotope('layout');
+        $grid.isotope('updateSortData').isotope('layout');
     });
 
     $grid.on('layoutComplete', function() {
@@ -149,10 +182,10 @@ $(window).bind('load', function() {
             columnWidth: '.idea',
             //resize: true,
         },
-        /* getSortData: {
+        getSortData: {
             votos: '.votos parseInt', // text from querySelector
-        }, */
+        },
         //sortBy: 'votos',
         //sortAscending: false,
-    }); 
+    }).isotope('layout');; 
 });

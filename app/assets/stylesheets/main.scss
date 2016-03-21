@@ -160,7 +160,7 @@ section *::selection {
    padding: 0 !important;
 }
 
-.filtros li a {
+.filtros li a, .filtros li a:focus {
     padding-top: 11px;
     color: white;
     background-color: black;
@@ -172,6 +172,12 @@ section *::selection {
 
 .filtros li a:hover {
     color: black;
+    background-color: white;
+}
+
+.filtros li a:active {
+    color: black;
+    box-shadow: inset 0px 0px 0px 3px black;
     background-color: white;
 }
 

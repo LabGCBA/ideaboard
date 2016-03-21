@@ -118,7 +118,7 @@ article.idea:after {
     border-left: 15px solid transparent;
     border-top: 13px solid #fff;
     border-bottom: 13px solid transparent;
-    z-index: 10;
+    z-index: 1;
     content: ' ';
     left: 25px;
 }
