@@ -122,7 +122,7 @@ function documentReadyEvents() {
     newIdeaTextarea.blur(function() {
         if (($.trim($(this).val()) + " ") === promptActive || $.trim($(this).val()).length === 0) {
             $(this).val(prompt);
-            if ($('#new_idea').find('#idea_categoria').val()) {
+            if ($('#idea_categoria').val() === '') {
                 $('.etiquetas-slider-wrapper').removeClass('slideDown').addClass('slideUp');
             }
         };
