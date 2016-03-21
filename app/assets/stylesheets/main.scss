@@ -38,10 +38,16 @@ body {
     background: #ffc403;
 }
 
+.container {
+    width: 90%;
+    margin-left: 5%;
+}
+
 header {
     float: left;
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 header * {
@@ -52,13 +58,14 @@ header * {
     -webkit-user-select: none;
     -ms-user-select: none;
     pointer-events: none;
+    margin-left: 6.5%;
 }
 
 header img {
+    margin: 0 0 0 -2%;
     position: relative;
     top: 0;
-    width: 91%;
-    margin: 0 5%;
+    width: 105%;
 }
 
 header > h1 {
@@ -69,8 +76,8 @@ header > h1 {
     width: 100%;
 }
 
-section {
-    margin: 0 5%;
+header, section {
+    margin-left: 0px !important;
 }
 
 section * {
@@ -92,33 +99,32 @@ section *::selection {
 }
 
 .form {
-    margin-top: 20px;
+    margin: 20px 0 0 0;
     width: 100%;
-}
-
-.pure-form {
-    margin: 0 1.35%;
     display: block !important;
 }
 
-.pure-form fieldset {
+.pure-form {
     width: 100%;
     height: 100%;
     display: table;
     text-align: center;
+    padding: 0 !important;
+    
 }
 
-.pure-form fieldset input {
+.pure-form input {
     display: table-cell;
     vertical-align: middle;
 }
 
 .pure-form .pure-input-3-4 {
-    width: calc(98% - 200px);
+    width: calc(99% - 201px);
     min-width: 365px;
-    padding: 0.5em 1em;
-    margin-right: 1%;
     margin-top: 10px;
+    margin-right: 1%;
+    margin-left: 0px;
+    padding: 0.5em 1em;
     border: none !important;
     border-radius: 0px !important;
     box-shadow: none !important;
@@ -132,6 +138,7 @@ section *::selection {
 .pure-form .pure-button {
     width: 200px;
     margin-top: 10px;
+    margin-right: 1px;
     background: black;
     border-radius: 0px;
     font-family: 'GothamRoundedMedium';
@@ -144,6 +151,24 @@ section *::selection {
 
 .pure-form .pure-button:hover {
     color: #ffc403;
+}
+
+.filtros {
+    margin: 0;
+}
+
+.filtros li a {
+    padding-top: 11px;
+    color: black;
+    font-family: 'GothamRoundedMedium';
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.filtros li a:hover {
+    color: white;
+    background-color: black;
 }
 
 .noty_bar {

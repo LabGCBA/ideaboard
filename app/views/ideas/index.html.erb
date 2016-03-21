@@ -4,9 +4,7 @@
             <img src="<%= image_path("mural.png") %>" alt="">
         </header>
         <section class="grid pure-u-1 form">
-            <div class="pure-form">
-                <%= render partial: 'form', locals: { idea: @idea} %>
-            </div>
+            <%= render partial: 'form', locals: { idea: @idea} %>
             <% flash.each do |name, msg| %>
                 <%= content_tag :div, msg, class: "ui alert" %>
             <% end %>
