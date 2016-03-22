@@ -31,6 +31,16 @@ function filterByTag(element, nav) {
     return false; // Void the click
 }
 
+function loadIdeaData(idea) {
+    var categoria = idea.find('.tag a').text();
+    var content = idea.find('.content').text();
+    var votos = idea.find('.votos').text();
+    
+    $('.comments-modal .tag a').text(categoria);
+    $('.comments-modal .content').text(content);
+    $('.comments-modal .votos').text(votos);
+}
+
 $(window).bind('load', function() {
     $grid.isotope({
         itemSelector: '.idea',

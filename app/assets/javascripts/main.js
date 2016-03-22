@@ -108,6 +108,9 @@ function documentReadyEvents() {
             content:'comments-modal'
         });
         
+        $('.comments-modal').show();
+        loadIdeaData($(this).parents('.idea'));
+        
         return false;
     });   
     
