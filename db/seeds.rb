@@ -52,3 +52,9 @@ ideas.times do |i|
   Idea.create(texto: "Free snacks!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(6))
   Idea.create(texto: "Estaría bueno que pongan un tele en el comedor...!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(4))
 end
+
+totalIdeas = Idea.count
+
+totalIdeas.times do |i|
+  Estado.create(texto: "Lo está viendo el Ministro.", idea: Idea.find(i + 1), persona: Persona.last)
+end
