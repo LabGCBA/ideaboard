@@ -1,9 +1,13 @@
+/*
+    Grilla de ideas (página de ideas)
+*/
+
 .ideas-wrapper {
     width: 100% !important;
     margin: 0;
 }
 
-.ideas {
+.ideas-wrapper .ideas {
     display: block !important;
     margin: 0 auto;
     width: 100%;
@@ -11,39 +15,39 @@
     margin-bottom: 40px;
 }
 
-.ideas:after {
+.ideas-wrapper .ideas:after {
   content: '';
   display: block;
   clear: both;
 }
 
-.gutter-sizer {
+.ideas-wrapper .ideas .gutter-sizer {
     width: 2%;
 }
 
-.item-sizer, .idea {
+ .ideas-wrapper .ideas .item-sizer, .ideas-wrapper .ideas article.idea {
     width: 23.49%;
 }
 
 @media (max-width: 1600px) {
-  .item-sizer, .idea {
+   .ideas-wrapper .ideas .item-sizer, .ideas-wrapper .ideas article.idea {
         width: 32%;
     }
 }
 
 @media (max-width: 900px) {
-  .item-sizer, .idea {
+   .ideas-wrapper .ideas .item-sizer, .ideas-wrapper .ideas article.idea {
         width: 49%;
     }
 }
 
 @media (max-width: 500px) {
-  .item-sizer, .idea {
+   .ideas-wrapper .ideas .item-sizer, .ideas-wrapper .ideas article.idea {
         width: 96%;
     }
 }
 
-article.idea {
+section.ideas-wrapper .ideas article.idea {
     float: left;
     background: #fff;
     min-height: 100px;
@@ -56,22 +60,22 @@ article.idea {
 	font-variant: normal;
 }
 
-article.idea:before {
+section.ideas-wrapper .ideas article.idea:before {
     content: ' ';
     display: table;
 }
 
-article.idea .content {
+section.ideas-wrapper .ideas article.idea .content {
     height: 100px;
     margin-bottom: 20px;
     font-weight: 500;
 }
 
-article.idea .content::selection {
+section.ideas-wrapper .ideas article.idea .content::selection {
     background: #ffc403;
 }
 
-article.idea .metadata {
+section.ideas-wrapper .ideas article.idea .metadata {
     margin-top: 20px;
     margin-bottom: 15px;
     font-family: 'GothamRoundedLight' !important;
@@ -80,23 +84,23 @@ article.idea .metadata {
     float: left;
 }
 
-article.idea .actionables {
+section.ideas-wrapper .ideas article.idea .actionables {
     margin-top: 30px;
     margin-bottom: 10px;
     float: right;
 }
 
-article.idea .actionables a {
+section.ideas-wrapper .ideas article.idea .actionables a {
     display: inline-block;
     vertical-align: middle;
     margin: 0;
 }
 
-article.idea .actionables a img {
+section.ideas-wrapper .ideas article.idea .actionables a img {
     vertical-align: bottom;
 }
 
-article.idea .actionables .votos {
+section.ideas-wrapper .ideas article.idea .actionables .votos {
     display: inline-block;
     font-family: 'GothamRoundedBold' !important;
     font-size: 18px;
@@ -104,12 +108,12 @@ article.idea .actionables .votos {
     vertical-align: middle;
 }
 
-article.idea .area {
+section.ideas-wrapper .ideas article.idea .area {
 	font-family: 'GothamRoundedBold' !important;
     text-transform: uppercase;
 }
 
-article.idea:after {
+section.ideas-wrapper .ideas article.idea:after {
     display: block;
     position: absolute;
     bottom: -26px;
@@ -119,7 +123,39 @@ article.idea:after {
     border-left: 15px solid transparent;
     border-top: 13px solid #fff;
     border-bottom: 13px solid transparent;
-    z-index: 1;
+    z-index: 0;
     content: ' ';
     left: 25px;
+}
+
+/*
+    Idea individual (modal)
+*/
+
+section.comments-modal {
+    display: none;
+}
+
+section.comments-modal article.idea {
+    
+}
+
+section.comments-modal article.idea .tag {
+    
+}
+
+section.comments-modal article.idea .tag a.content {
+    
+}
+
+section.comments-modal article.idea .metadata {
+    
+}
+
+section.comments-modal article.idea aside.metadata .nombre {
+    
+}
+
+section.comments-modal article.idea aside.metadata .area {
+    
 }

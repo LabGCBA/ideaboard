@@ -12,19 +12,19 @@
         </section>
         <section class="pure-u-1 pure-menu pure-menu-horizontal filtros">
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="" class="pure-menu-link todas">Todas</a></li>
-                <li class="pure-menu-item"><a href="" class="pure-menu-link mas-votadas">Más Votadas</a></li>
-                <li class="pure-menu-item"><a href="" class="pure-menu-link mas-nuevas">Más Nuevas</a></li>
+                <li class="pure-menu-item todas"><a href="" class="pure-menu-link">Todas</a></li>
+                <li class="pure-menu-item mas-votadas"><a href="" class="pure-menu-link">Más Votadas</a></li>
+                <li class="pure-menu-item mas-nuevas"><a href="" class="pure-menu-link">Más Nuevas</a></li>
                 <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
                     <a href="" id="etiquetas-nav" class="pure-menu-link">Etiqueta</a>
                     <ul class="pure-menu-children etiquetas">
-                        <li class="pure-menu-item"><a href="" class="pure-menu-link comida-bebida" data-filter=".comida-bebida">Comida/Bebida</a></li>
-                        <li class="pure-menu-item"><a href="" class="pure-menu-link capacitaciones" data-filter=".capacitaciones">Capacitaciones</a></li>
-                        <li class="pure-menu-item"><a href="" class="pure-menu-link recreacion" data-filter=".recreacion">Recreación</a></li>
-                        <li class="pure-menu-item"><a href="" class="pure-menu-link edificio" data-filter=".edificio">Edificio</a></li>
-                        <li class="pure-menu-item"><a href="" class="pure-menu-link comunicacion" data-filter=".comunicacion">Comunicación</a></li>
-                        <li class="pure-menu-item"><a href="" class="pure-menu-link beneficios" data-filter=".beneficios">Beneficios</a></li>
-                        <li class="pure-menu-item"><a href="" class="pure-menu-link insumos" data-filter=".insumos">Insumos</a></li>
+                        <li class="pure-menu-item" data-filter=".comida-bebida"><a href="" class="pure-menu-link comida-bebida">Comida/Bebida</a></li>
+                        <li class="pure-menu-item" data-filter=".capacitaciones"><a href="" class="pure-menu-link capacitaciones">Capacitaciones</a></li>
+                        <li class="pure-menu-item" data-filter=".recreacion"><a href="" class="pure-menu-link recreacion">Recreación</a></li>
+                        <li class="pure-menu-item" data-filter=".edificio"><a href="" class="pure-menu-link edificio">Edificio</a></li>
+                        <li class="pure-menu-item" data-filter=".comunicacion"><a href="" class="pure-menu-link comunicacion">Comunicación</a></li>
+                        <li class="pure-menu-item" data-filter=".beneficios"><a href="" class="pure-menu-link beneficios">Beneficios</a></li>
+                        <li class="pure-menu-item" data-filter=".insumos"><a href="" class="pure-menu-link insumos">Insumos</a></li>
                     </ul>
                 </li>
             </ul>
@@ -36,6 +36,30 @@
                 <% @ideas.each do |idea| %>
                     <%= render partial: 'idea', locals: { idea: idea} %>
                 <% end %>
+            </div>
+         </section>
+         <section id="comments-modal" class="comments-modal">
+            <article class="idea" data-filter="" data-date="">
+                <aside class="tag">
+                    <a href="" class="categoria"></a>
+                </aside>
+                <div class="content">
+                    
+                </div>
+                <aside class="metadata">
+                    <div class="nombre"></div>
+                    <div class="area"></div>
+                </aside>
+                <aside class="actionables">
+                    <div class="votar">
+                            <img src="<%= image_path("corazon.svg") %>">
+                        <span class="votos"></span>
+                    </div>
+                </aside>
+            </article>
+            <div class="estado">
+            </div>
+            <div class="comentarios">
             </div>
          </section>
     </div>
