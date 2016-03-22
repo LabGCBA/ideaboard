@@ -2,7 +2,7 @@ ideaCache = [];
 errors = false;
 prompt = "Me gustaría...";
 promptActive = "Me gustaría "
-newIdeaTextarea = $("#new_idea .pure-input-3-4");
+newIdeaTextarea = $("#idea_texto");
 
 function setSelectionRange(input, selectionStart, selectionEnd) {
     if (input.setSelectionRange) {
@@ -61,6 +61,65 @@ function validateForm(form) {
 
 function documentReadyEvents() {
     
+        /////////////////////////////////////////////////////////////////////////////////////
+    //  FILTERS
+    /////////////////////////////////////////////////////////////////////////////////////
+
+        $('.filtros .todas').click(function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $grid.isotope({ filter: '*' });
+            return false; // Void the click
+        });
+
+        $('.filtros .mas-votadas').click(function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $grid.isotope({ sortBy : 'votos', sortAscending: false, });
+            return false; // Void the click
+        });
+
+        $('.filtros .mas-nuevas').click(function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $grid.isotope({ sortBy : 'fecha', sortAscending: false, });
+            return false; // Void the click
+        });     
+
+        $('.filtros .etiquetas li').click(function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return filterByTag(this, true);
+        });
+
+        $('.ideas .idea .tag').click(function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return filterByTag(this);
+        });
+
+    ///////////////////////////////////////////////////////////////////////////////////
+   
+    $('.ideas .idea .content').click(function(e) {
+        e.preventDefault();
+        
+        uglipop({class:'comments-modal',
+            source:'div',
+            content:'comments-modal'
+        });
+        
+        return false;
+    });   
+    
+    // Recalculate grid on browser resize
+    $(window).bind('resize', function() {
+        if ($('.boxfitted').length) {
+            deFitIdeaText();
+        }
+        reFitIdeaText();
+        $grid.isotope('updateSortData').isotope('layout');
+    });
+    
     // Idea submit button click
     $("#new_idea .pure-button").click(function(e) {
         var text = $.trim(newIdeaTextarea.val());
@@ -90,6 +149,7 @@ function documentReadyEvents() {
     newIdeaTextarea.blur(function() {
         if (($.trim($(this).val()) + " ") === promptActive || $.trim($(this).val()).length === 0) {
             $(this).val(prompt);
+            
             if ($('#idea_categoria').val() === '') {
                 $('.etiquetas-slider-wrapper').removeClass('slideDown').addClass('slideUp');
             }
@@ -108,6 +168,7 @@ function documentReadyEvents() {
 
         $(this).siblings().removeClass('etiqueta-active');
         $(this).addClass('etiqueta-active');
+        newIdeaTextarea.focus();
 
         return false;
     });
