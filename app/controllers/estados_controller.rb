@@ -1,0 +1,2 @@
+class EstadosController < ApplicationController
+end

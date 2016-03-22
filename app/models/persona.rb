@@ -4,6 +4,7 @@ class Persona < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :ideas, dependent: :destroy
+  has_many :estados
   belongs_to :direccion
   # attr_accessible :nombre, :email, :direccion, :password, :identity_url
   acts_as_voter
