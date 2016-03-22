@@ -140,12 +140,12 @@ function documentReadyEvents() {
         });
 
         $('.filtros .mas-votadas').click(function(e) {
-            $grid.isotope({ sortBy : 'votos' });
+            $grid.isotope({ sortBy : 'votos', sortAscending: false, });
             return false; // Void the click
         });
 
         $('.filtros .mas-nuevas').click(function(e) {
-            $grid.isotope({ sortBy : 'fecha' });
+            $grid.isotope({ sortBy : 'fecha', sortAscending: false, });
             return false; // Void the click
         });     
 
