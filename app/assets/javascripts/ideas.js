@@ -34,11 +34,15 @@ function filterByTag(element, nav) {
 function loadIdeaData(idea) {
     var categoria = idea.find('.tag a').text();
     var content = idea.find('.content').text();
-    var votos = idea.find('.votos').text();
+    var nombre = idea.find('.metadata .nombre').text();
+    var area = idea.find('.metadata .area').text();
+    var votos = idea.find('.actionables .votos').text();
     
     $('.comments-modal .tag a').text(categoria);
     $('.comments-modal .content').text(content);
-    $('.comments-modal .votos').text(votos);
+    $('.comments-modal .metadata .nombre').text(nombre);
+    $('.comments-modal .metadata .area').text(area);
+    $('.comments-modal .actionables .votos').text(votos);
 }
 
 $(window).bind('load', function() {

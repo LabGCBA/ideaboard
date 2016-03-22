@@ -116,7 +116,7 @@ article.idea .actionables .votos {
     vertical-align: middle;
 }
 
-article.idea .area {
+article.idea .area, .comments-modal .estado > .header {
 	font-family: 'GothamRoundedBold' !important;
     text-transform: uppercase;
 }
@@ -168,7 +168,7 @@ section.ideas-wrapper .ideas article.idea:after {
 
 .comments-modal article.idea .content {
     font-family: 'GothamRoundedMedium' !important;
-    font-size: 3em;
+    font-size: 2.9em;
     line-height: 1em;
 }
 
@@ -180,10 +180,20 @@ section.ideas-wrapper .ideas article.idea:after {
     
 }
 
+.comments-modal article.idea aside.metadata, .comments-modal .estado > .header {
+    font-size: 20px;
+    line-height: 21px;
+}
+
 .comments-modal article.idea aside.metadata .nombre {
     
 }
 
-.comments-modal article.idea aside.metadata .area {
+.comments-modal .estado {
+    clear: both;
+    margin-top: 20px;
+}
+
+.comments-modal .estado .header {
     
 }
