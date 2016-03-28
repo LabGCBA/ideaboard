@@ -5,18 +5,5 @@
                 <div class="content">
                     <a href="" class="modal-open"><%= idea.texto %></a>
                 </div>
-                <aside class="metadata">
-                    <div class="nombre"><%= idea.persona.nombre %></div>
-                    <div class="area"><%= idea.persona.direccion.nombre %></div>
-                </aside>
-                <aside class="actionables">
-                    <div class="votar">
-                        <%= link_to(vote_idea_path(idea), method: :post, :remote => true) do %>
-                            <img src="<%= image_path("corazon.svg") %>">
-                        <% end %>
-                        <span class="votos"><%= idea.votes_for %></span>
-                    </div>
-                    
-                </aside>
             </article>
                         
