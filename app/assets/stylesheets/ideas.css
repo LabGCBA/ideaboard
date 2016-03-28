@@ -66,9 +66,13 @@ section.ideas-wrapper .ideas article.idea:before {
 }
 
 section.ideas-wrapper .ideas article.idea .content {
-    height: 100px;
+    height: 150px;
     margin-bottom: 20px;
     font-weight: 500;
+}
+
+.ideas {
+    min-height: 40vh !important;
 }
 
 article.idea .content a {
