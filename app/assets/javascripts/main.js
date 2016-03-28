@@ -39,6 +39,7 @@ function notifyError(message) {
 
 function validateForm(form) {
     var text = $.trim(newIdeaTextarea.val());
+    var tieneEtiqueta = false;
 
     if (ideaCache.indexOf(text) !== -1 || text.length === 0) {
         return false
@@ -56,7 +57,18 @@ function validateForm(form) {
         return false;
     }
 
-    return true;
+    $('.etiquetas-slider a').each(function() {
+        if ($(this).hasClass("etiqueta-active")) tieneEtiqueta = true;
+    });
+
+    if (tieneEtiqueta) {
+        tieneEtiqueta = false;
+        return true;
+    }
+    else {
+        notifyError("Debe elegir una etiqueta!");
+        return false;
+    }
 }
 
 function documentReadyEvents() {
