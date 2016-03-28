@@ -8,7 +8,12 @@ Rails.application.routes.draw do
     root 'ideas#index'
     post '/ideas/:id' => 'ideas#vote', as: 'vote_idea'
     devise_for :personas, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
-    resources :ideas, :personas, :direcciones, :subsecretarias, :estados
+    resources :personas, :direcciones, :subsecretarias, :estados
+    resources :ideas do
+      member do
+        get :estados
+      end
+    end
     resource :session, only: [:new, :create, :destroy]
   end
 

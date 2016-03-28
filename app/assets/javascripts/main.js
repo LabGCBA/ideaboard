@@ -102,12 +102,12 @@ function documentReadyEvents() {
    
     $('.ideas .idea .content').click(function(e) {
         e.preventDefault();
-        
-        uglipop({class:'comments-modal',
+
+        uglipop({ class:'comments-modal',
             source:'div',
-            content:'comments-modal'
+            content:'comments-modal',
         });
-        
+
         $('.comments-modal').show();
         loadIdeaData($(this).parents('.idea'));
         
@@ -179,7 +179,8 @@ function documentReadyEvents() {
 
 $(document).ready(function() {
     documentReadyEvents();
-
+    
+    moment.locale('es');
     $('.etiquetas-slider-wrapper').addClass('slideUp');
     newIdeaTextarea.val(prompt);
     autosize(newIdeaTextarea);

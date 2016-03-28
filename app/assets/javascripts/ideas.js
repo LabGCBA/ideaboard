@@ -32,11 +32,33 @@ function filterByTag(element, nav) {
 }
 
 function loadIdeaData(idea) {
+    var idea_id = $(idea).attr('id').split("_").pop();   
     var categoria = idea.find('.tag a').text();
     var content = idea.find('.content').text();
     var nombre = idea.find('.metadata .nombre').text();
     var area = idea.find('.metadata .area').text();
     var votos = idea.find('.actionables .votos').text();
+    var url = $(location).attr('href') + "/ideas/" + idea_id + "/estados";
+    
+    $.ajax({
+        type:"GET",
+        url: url,
+        dataType: "json",
+        success: function(result) {
+            var lastItem = result.pop();
+            var currentHeader =  $('.comments-modal .estado > .header').text();
+            var texto = lastItem.texto;
+            var fecha = moment(lastItem.created_at).fromNow();
+            var nombre = lastItem.persona.nombre;
+            
+            $('.comments-modal .estado > .header').text(currentHeader + fecha);
+            $('.comments-modal .estado > .texto').text(texto);
+            $('.comments-modal .estado > .nombre').text(nombre);
+        },
+        error: function(xhr, error) {
+            alert(error);
+        },
+    });
     
     $('.comments-modal .tag a').text(categoria);
     $('.comments-modal .content').text(content);

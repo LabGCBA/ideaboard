@@ -86,7 +86,7 @@ article.idea .content::selection {
 article.idea .metadata {
     margin-top: 20px;
     margin-bottom: 15px;
-    font-family: 'GothamRoundedLight' !important;
+    font-family: 'GothamRoundedBook' !important;
     font-size: 16px;
 	line-height: 17px;
     float: left;
@@ -116,8 +116,8 @@ article.idea .actionables .votos {
     vertical-align: middle;
 }
 
-article.idea .area, .comments-modal .estado > .header {
-	font-family: 'GothamRoundedBold' !important;
+article.idea .area {
+	font-family: 'GothamRoundedMedium' !important;
     text-transform: uppercase;
 }
 
@@ -145,11 +145,10 @@ section.ideas-wrapper .ideas article.idea:after {
 }
 
 .comments-modal {
-    width: 40vw;
+    width: 33vw;
     min-height: 300px;
-    height: 30vh;
     min-width: 350px;
-    padding: 20px;
+    padding: 25px;
     background-color: #fff !important;
     border-radius: 20px;
 }
@@ -167,8 +166,9 @@ section.ideas-wrapper .ideas article.idea:after {
 }
 
 .comments-modal article.idea .content {
+    margin-bottom: 20px;
     font-family: 'GothamRoundedMedium' !important;
-    font-size: 2.9em;
+    font-size: 2.7em;
     line-height: 1em;
 }
 
@@ -177,12 +177,12 @@ section.ideas-wrapper .ideas article.idea:after {
 }
 
 .comments-modal article.idea .metadata {
-    
+    margin-bottom: 30px;
 }
 
-.comments-modal article.idea aside.metadata, .comments-modal .estado > .header {
-    font-size: 20px;
-    line-height: 21px;
+.comments-modal article.idea aside.metadata, .comments-modal .estado {
+    font-size: 22px;
+    line-height: 23px;
 }
 
 .comments-modal article.idea aside.metadata .nombre {
@@ -191,9 +191,42 @@ section.ideas-wrapper .ideas article.idea:after {
 
 .comments-modal .estado {
     clear: both;
-    margin-top: 20px;
+    margin-top: 30px;
+    padding-top: 28px;
+    border-top: 2px solid #ccc;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
-.comments-modal .estado .header {
-    
+.comments-modal .estado > .header {
+    font-family: 'GothamRoundedMedium' !important;
+}
+
+.comments-modal .estado .texto, .comments-modal .estado .nombre {
+    margin-top: 12px;
+    font-family: 'GothamRoundedBook' !important; 
+}
+
+.comments-modal .estado .nombre {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.comments-modal .estado:after {
+    display: block;
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-right: 15px solid #fff;
+    border-left: 15px solid transparent;
+    border-top: 14px solid #fff;
+    border-bottom: 13px solid transparent;
+    z-index: 0;
+    content: ' ';
+    left: 25px;
+}
+
+.comments-modal .comentarios {
+    background-color: #eee;
+    min-height: 110%;
 }

@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :unvote]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :unvote, :estados]
   before_action :authenticate_persona!, only: [:edit, :update, :destroy, :vote, :unvote]
   
   def index
@@ -71,6 +71,16 @@ class IdeasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_path }
       format.json { head :no_content }
+      format.js
+    end
+  end
+  
+  def estados
+    @estados = @idea.estados
+    
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render json: @estados.to_json({:include => :persona}) }
       format.js
     end
   end
