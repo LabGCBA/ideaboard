@@ -71,6 +71,14 @@ function validateForm(form) {
     }
 }
 
+function recalculateGrid() {
+    if ($('.boxfitted').length) {
+        deFitIdeaText();
+    }
+    reFitIdeaText();
+    $grid.isotope('updateSortData').isotope('layout');
+}
+
 function documentReadyEvents() {
     
         /////////////////////////////////////////////////////////////////////////////////////
@@ -114,25 +122,13 @@ function documentReadyEvents() {
    
     $('.ideas .idea .content').click(function(e) {
         e.preventDefault();
-
-        uglipop({ class:'comments-modal',
-            source:'div',
-            content:'comments-modal',
-        });
-
-        $('.comments-modal').show();
-        loadIdeaData($(this).parents('.idea'));
         
         return false;
     });   
     
     // Recalculate grid on browser resize
     $(window).bind('resize', function() {
-        if ($('.boxfitted').length) {
-            deFitIdeaText();
-        }
-        reFitIdeaText();
-        $grid.isotope('updateSortData').isotope('layout');
+        recalculateGrid();
     });
     
     // Idea submit button click

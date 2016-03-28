@@ -3,11 +3,6 @@ var html = $('<%=
     j(render(partial: 'ideas/idea', locals: { idea: @idea })) 
 %>');
 
-html.boxfit({
-    multiline: true,
-    align_center: false
-});  
-
 $(".ideas").prepend(html).isotope('prepended', html).isotope('layout');
 
 ideaCache.push("<%= j @idea.texto %>");  
@@ -19,6 +14,7 @@ else {
     newIdeaTextarea.val(prompt);
 }
 
-reFitIdeaText();
 autosize.update(newIdeaTextarea);
 $('#new_idea').find('#idea_categoria').val('');
+
+recalculateGrid();
