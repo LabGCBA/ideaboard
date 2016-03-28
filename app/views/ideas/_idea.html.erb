@@ -1,4 +1,4 @@
-            <article id="idea_<%= idea.id %>" class="idea <%= idea.categoria.nombre.downcase.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %>" data-filter="<%= '.' + idea.categoria.nombre.downcase.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %>" data-date="<%= idea.created_at %>">
+            <article id="idea_<%= idea.id %>" class="idea <%= idea.categoria.nombre.downcase.parameterize.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %>" data-filter="<%= '.' + idea.categoria.nombre.downcase.parameterize.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %>" data-date="<%= idea.created_at %>">
                 <aside class="tag">
                     <a href="" class="categoria"><%= idea.categoria.nombre.downcase %></a>
                 </aside>
