@@ -146,7 +146,7 @@ section.ideas-wrapper .ideas article.idea:after {
 
 .comments-modal {
     width: 33vw;
-    min-height: 300px;
+    min-height: 100px;
     min-width: 350px;
     padding: 25px;
     background-color: #fff !important;
