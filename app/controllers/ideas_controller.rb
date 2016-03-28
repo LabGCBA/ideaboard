@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :unvote, :estados]
-  before_action :authenticate_persona!, only: [:edit, :update, :destroy, :vote, :unvote]
+  before_action :authenticate_persona!, only: [:edit, :update, :destroy]
+  # before_action :authenticate_persona!, only: [:edit, :update, :destroy, :vote, :unvote]
   
   def index
     @ideas = Idea.order("created_at DESC").all

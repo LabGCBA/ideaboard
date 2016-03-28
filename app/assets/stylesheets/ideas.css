@@ -68,6 +68,7 @@ section.ideas-wrapper .ideas article.idea:before {
 section.ideas-wrapper .ideas article.idea .content {
     height: 100px;
     margin-bottom: 20px;
+    padding-top: 5px;
     font-weight: 500;
 }
 
