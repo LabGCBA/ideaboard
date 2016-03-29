@@ -146,16 +146,17 @@ section.ideas-wrapper .ideas article.idea:after {
 }
 
 .comments-modal {
-    width: 33vw;
-    min-height: 300px;
-    min-width: 350px;
-    padding: 25px;
-    background-color: #fff !important;
-    border-radius: 20px;
+    
 }
 
 .comments-modal article.idea {
-    
+    padding: 25px;
+    width: 33vw;
+    min-width: 350px;
+    background-color: #fff !important;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: auto;
 }
 
 .comments-modal article.idea .tag {
@@ -177,8 +178,8 @@ section.ideas-wrapper .ideas article.idea:after {
     
 }
 
-.comments-modal article.idea .metadata {
-    margin-bottom: 30px;
+.comments-modal article.idea .metadata, .comments-modal article.idea .actionables {
+    margin-bottom: 0px !important;
 }
 
 .comments-modal article.idea aside.metadata, .comments-modal .estado {
@@ -192,11 +193,14 @@ section.ideas-wrapper .ideas article.idea:after {
 
 .comments-modal .estado {
     clear: both;
-    margin-top: 30px;
-    padding-top: 28px;
+    margin-top: -1px;
+    padding: 25px;
     border-top: 2px solid #ccc;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    position: relative;
+    background-color: #fff !important;
+    z-index: 1;
 }
 
 .comments-modal .estado > .header {
@@ -209,11 +213,11 @@ section.ideas-wrapper .ideas article.idea:after {
 }
 
 .comments-modal .estado .nombre {
-    margin-bottom: 20px;
     font-style: italic;
 }
 
 .comments-modal .estado:after {
+    margin-top: 24px;
     display: block;
     position: absolute;
     height: 0;
@@ -228,6 +232,12 @@ section.ideas-wrapper .ideas article.idea:after {
 }
 
 .comments-modal .comentarios {
+    margin-top: -30px;
+    padding: 25px;
+    padding-top: 70px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     background-color: #eee;
     min-height: 110%;
+    z-index: -1;
 }

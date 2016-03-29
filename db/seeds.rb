@@ -57,4 +57,7 @@ totalIdeas = Idea.count
 
 totalIdeas.times do |i|
   Estado.create(texto: "Lo está viendo el Ministro.", idea: Idea.find(i + 1), persona: Persona.last)
+  Comentario.create(texto: "Me encanta!", idea: Idea.find(i + 1), persona: Persona.find(1 + rand(personas).round))
+  Comentario.create(texto: "A mí no tanto.", idea: Idea.find(i + 1), persona: Persona.find(1 + rand(personas).round))
+  Comentario.create(texto: "Podría ser, pero preferiría que se prioricen otras cosas.", idea: Idea.find(i + 1), persona: Persona.find(1 + rand(personas).round))
 end

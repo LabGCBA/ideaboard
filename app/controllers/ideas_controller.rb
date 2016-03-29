@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :unvote, :estados]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :unvote, :estados, :comentarios]
   before_action :authenticate_persona!, only: [:edit, :update, :destroy]
   # before_action :authenticate_persona!, only: [:edit, :update, :destroy, :vote, :unvote]
   
@@ -82,6 +82,16 @@ class IdeasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_path }
       format.json { render json: @estados.to_json({:include => :persona}) }
+      format.js
+    end
+  end
+  
+  def comentarios
+    @comentarios = @idea.comentarios
+    
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render json: @comentarios.to_json({:include => :persona}) }
       format.js
     end
   end

@@ -1,6 +1,6 @@
-class CreateCategoria < ActiveRecord::Migration
+class CreateCategorias < ActiveRecord::Migration
   def change
-    create_table :categoria do |t|
+    create_table :categorias do |t|
       t.string :nombre, limit: 50, null: false
 
       t.timestamps null: false

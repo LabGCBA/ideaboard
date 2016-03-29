@@ -3,12 +3,12 @@ var html = $('<%=
     j(render(partial: 'ideas/idea', locals: { idea: @idea })) 
 %>');
 
-html.boxfit({
-    multiline: true,
-    align_center: false
-});  
+$(html).on("click", ".content", function(e) {
+    ideaClickHandler(this, e);
+});   
 
-$(".ideas").prepend(html).isotope('prepended', html).isotope('layout');
+$(".ideas").prepend(html).isotope('prepended', html);
+recalculateGrid();
 
 ideaCache.push("<%= j @idea.texto %>");  
 

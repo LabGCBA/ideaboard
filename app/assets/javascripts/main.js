@@ -39,6 +39,7 @@ function notifyError(message) {
 
 function validateForm(form) {
     var text = $.trim(newIdeaTextarea.val());
+    var tieneEtiqueta = false;
 
     if (ideaCache.indexOf(text) !== -1 || text.length === 0) {
         return false
@@ -56,7 +57,40 @@ function validateForm(form) {
         return false;
     }
 
-    return true;
+    $('.etiquetas-slider a').each(function() {
+        if ($(this).hasClass("etiqueta-active")) tieneEtiqueta = true;
+    });
+
+    if (tieneEtiqueta) {
+        tieneEtiqueta = false;
+        return true;
+    }
+    else {
+        notifyError("Debe elegir una etiqueta!");
+        return false;
+    }
+}
+
+function recalculateGrid() {
+    if ($('.boxfitted').length) {
+        deFitIdeaText();
+    }
+    reFitIdeaText();
+    $grid.isotope('updateSortData').isotope('layout');
+}
+
+function ideaClickHandler(element, e) {
+    e.preventDefault();
+
+    uglipop({ class:'comments-modal',
+        source:'div',
+        content:'comments-modal',
+    });
+
+    $('.comments-modal').show();
+    loadIdeaData($(element).parents('.idea'));
+    
+    return false;
 }
 
 function documentReadyEvents() {
@@ -100,27 +134,13 @@ function documentReadyEvents() {
 
     ///////////////////////////////////////////////////////////////////////////////////
    
-    $('.ideas .idea .content').click(function(e) {
-        e.preventDefault();
-
-        uglipop({ class:'comments-modal',
-            source:'div',
-            content:'comments-modal',
-        });
-
-        $('.comments-modal').show();
-        loadIdeaData($(this).parents('.idea'));
-        
-        return false;
+    $('.ideas .idea').on("click", ".content", function(e) {
+        ideaClickHandler(this, e);
     });   
     
     // Recalculate grid on browser resize
     $(window).bind('resize', function() {
-        if ($('.boxfitted').length) {
-            deFitIdeaText();
-        }
-        reFitIdeaText();
-        $grid.isotope('updateSortData').isotope('layout');
+        recalculateGrid();
     });
     
     // Idea submit button click

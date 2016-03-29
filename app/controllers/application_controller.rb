@@ -50,10 +50,10 @@ class ApplicationController < ActionController::Base
   end
 
   def create_guest_persona
-    p = Persona.create(nombre: "guest", email: "guest_#{Time.now.to_i}#{rand(100)}@example.com")
-    p.save!(:validate => false)
-    session[:guest_persona_id] = p.id
-    p
+    persona = Persona.create(nombre: "guest", email: "guest_#{Time.now.to_i}#{rand(100)}@example.com")
+    persona.save!(:validate => false)
+    session[:guest_persona_id] = persona.id
+    persona
   end
 
 end
