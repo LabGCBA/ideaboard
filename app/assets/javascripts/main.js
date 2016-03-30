@@ -3,6 +3,7 @@ errors = false;
 prompt = "Me gustaría...";
 promptActive = "Me gustaría "
 newIdeaTextarea = $("#idea_texto");
+newCommentTextarea = $("#new_comentario textarea");
 commentTemplate = $('.comentarios .comentario').detach();
 
 function setSelectionRange(input, selectionStart, selectionEnd) {
@@ -205,4 +206,5 @@ $(document).ready(function() {
     $('.etiquetas-slider-wrapper').addClass('slideUp');
     newIdeaTextarea.val(prompt);
     autosize(newIdeaTextarea);
+    autosize(newComentarioTextarea);
 });

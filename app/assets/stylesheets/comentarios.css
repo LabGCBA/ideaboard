@@ -21,7 +21,7 @@
 }
 
 .comentarios .comentario:last-of-type {
-    margin-bottom: 0px;
+    margin-bottom: 30px;
 }
 
 #new_comentario {
@@ -36,6 +36,8 @@
     box-shadow: none !important;
     border: none !important;
     border-radius: 0px !important;
+    color: #444;
+    font-size: 20px !important;
 }
 
 #new_comentario .pure-button {

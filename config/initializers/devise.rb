@@ -270,10 +270,10 @@ Devise.setup do |config|
             port: 443,
             scheme: "https",
             #host: "buenosaires.gob.ar/",
-            issuer: "id.buenosaires.gob.ar/openid/",
-            identifier: "45604391",
-            secret: "6e9fa20f9a5a41069ba26da7e39e1ebb",
-            redirect_uri: "http://localhost:3000",
+            host: "https://id.buenosaires.gob.ar/openid",
+            identifier: "29123444",
+            secret: "bcdd127b1e9c4b49b03853ac62fa4535",
+            redirect_uri: "http://localhost:3000/expresometro",
         },
     }
 end

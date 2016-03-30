@@ -6,7 +6,7 @@ var htmlComment = $('<%=
 htmlComment.appendTo('.comentarios .comentarios-wrapper').hide();
 htmlComment.fadeIn( "slow");
 
-$('.comentarios').animate({"scrollTop": $('.comentarios').actual('height') * 3}, "slow");
+$('.comentarios').animate({"scrollTop": $('.comentarios').actual('outerHeight', { includeMargin : true }) * 3}, "slow");
 
 newCommentTextarea.val('');
 autosize.update(newCommentTextarea);
