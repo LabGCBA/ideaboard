@@ -1,0 +1,12 @@
+var newCommentTextarea = $("#new_comentario .pure-input");
+var htmlComment = $('<%= 
+    j(render(partial: 'comentarios/comentario', locals: { comentario: @comentario })) 
+%>');
+
+htmlComment.appendTo('.comentarios .comentarios-wrapper').hide();
+htmlComment.fadeIn( "slow");
+
+$('.comentarios').animate({"scrollTop": $('.comentarios').actual('height') * 3}, "slow");
+
+newCommentTextarea.val('');
+autosize.update(newCommentTextarea);

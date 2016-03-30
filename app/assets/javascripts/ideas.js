@@ -45,7 +45,8 @@ function loadIdeaData(idea) {
     $('.comments-modal .content').text(content);
     $('.comments-modal .metadata .nombre').text(nombre);
     $('.comments-modal .metadata .area').text(area);
-    $('.comments-modal .actionables .votos').text(votos);    
+    $('.comments-modal .actionables .votos').text(votos);
+    $('.comments-modal #new_comentario').find('#comentario_idea_id').val(idea_id);
 
     getEstados(urlEstados);
     getComentarios(urlComentarios);
@@ -80,6 +81,8 @@ function showEstados(result) {
 }
 
 function getComentarios(url) {
+    $('.comentarios-wrapper').empty();
+
     $.ajax({
         type:"GET",
         url: url,
@@ -93,12 +96,21 @@ function getComentarios(url) {
     });
 }
 
-function showComentarios(result) {
-    if (result.length > 0) {
-        var lastItem = result.pop();
-        var texto = lastItem.texto;
-        var fecha = moment(lastItem.created_at).fromNow();
-        var nombre = lastItem.persona.nombre;
+function showComentarios(results) {
+    var length = results.length;
+
+    if (length > 0) {
+        for (var i = 0; i < length; i++) {
+            var comment = commentTemplate.clone();
+            var nombre = results[i].persona.nombre;
+            var texto = results[i].texto;
+
+            comment.find('.nombre').text(nombre);
+            comment.find('.texto').text(texto);
+            comment.appendTo('.comentarios-wrapper');
+        }
+
+        autosize($("#new_comentario .pure-input"));    
     } 
 }
 

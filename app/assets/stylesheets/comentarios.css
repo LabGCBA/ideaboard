@@ -1,0 +1,47 @@
+.comments-modal .comentarios {
+    margin-top: -30px;
+    padding: 25px;
+    padding-top: 50px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #eee;
+    max-height: 30vh;
+    overflow-y: auto;
+    border-top: 30px solid #eee;
+    z-index: -1;
+}
+
+.comments-modal .comentarios .comentarios-wrapper {
+    margin-top: 25px;
+}
+
+.comentarios .comentario {
+    margin-bottom: 25px;
+    color: #444;
+}
+
+.comentarios .comentario:last-of-type {
+    margin-bottom: 0px;
+}
+
+#new_comentario {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#new_comentario textarea {
+    width: 100%;
+    resize: none;
+    display: block;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0px !important;
+}
+
+#new_comentario .pure-button {
+    padding: 10px;
+    width: 150px;
+    float: right;
+    font-size: 18px;
+    line-height: 20px;
+}

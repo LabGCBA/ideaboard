@@ -64,10 +64,13 @@
             </div>
             <div class="comentarios">
                 <span class="header">Comentarios</span>
-                <div class="comentario">
-                    <div class="nombre"></div>
-                    <div class="texto"></div>
+                <div class="comentarios-wrapper">
+                    <div class="comentario">
+                        <div class="nombre"></div>
+                        <div class="texto"></div>
+                    </div>
                 </div>
+                <%= render partial: 'comentarios/form', locals: { idea: @idea, comentario: @new_comentario} %>
             </div>
          </section>
     </div>

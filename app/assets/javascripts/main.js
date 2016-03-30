@@ -3,6 +3,7 @@ errors = false;
 prompt = "Me gustaría...";
 promptActive = "Me gustaría "
 newIdeaTextarea = $("#idea_texto");
+commentTemplate = $('.comentarios .comentario').detach();
 
 function setSelectionRange(input, selectionStart, selectionEnd) {
     if (input.setSelectionRange) {
