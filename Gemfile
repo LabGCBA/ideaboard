@@ -46,6 +46,8 @@ gem 'protected_attributes'
 
 gem 'omniauth'
 
+gem 'omniauth-openid'
+
 gem 'omniauth-openid-connect'
 
 gem 'cancancan'
