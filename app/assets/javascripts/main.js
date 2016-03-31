@@ -90,6 +90,7 @@ function ideaClickHandler(element, e) {
     });
 
     $('.comments-modal').show();
+    autosize(newComentarioTextarea);
     loadIdeaData($(element).parents('.idea'));
     
     return false;
@@ -206,5 +207,4 @@ $(document).ready(function() {
     $('.etiquetas-slider-wrapper').addClass('slideUp');
     newIdeaTextarea.val(prompt);
     autosize(newIdeaTextarea);
-    autosize(newComentarioTextarea);
 });

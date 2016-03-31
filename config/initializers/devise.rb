@@ -262,6 +262,8 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+    #require 'openid/store/filesystem' 
+    #config.omniauth :open_id, :name => 'BAid', :identifier => 'https://id.buenosaires.gob.ar/openid', :store => OpenID::Store::Filesystem.new('/tmp')
     config.omniauth :openid_connect, {
         name: :BAid,
         scope: [:openid, :email, :profile, :address],
@@ -269,11 +271,10 @@ Devise.setup do |config|
         client_options: {
             port: 443,
             scheme: "https",
-            #host: "buenosaires.gob.ar/",
-            host: "https://id.buenosaires.gob.ar/openid",
-            identifier: "29123444",
-            secret: "bcdd127b1e9c4b49b03853ac62fa4535",
-            redirect_uri: "http://localhost:3000/expresometro",
+            host: "id.buenosaires.gob.ar/openid",
+            identifier: '29123444',
+            secret: 'bcdd127b1e9c4b49b03853ac62fa4535',
+            redirect_uri: "http://localhost:3000/expresometro/auth/openid_connect/callback",
         },
     }
 end

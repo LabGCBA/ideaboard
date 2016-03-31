@@ -40,17 +40,17 @@ gem 'acts-as-taggable-on', '>= 2.3.1'
 
 gem 'devise'
 
-gem 'thumbs_up'
-
-gem 'protected_attributes'
-
 gem 'omniauth'
-
-gem 'omniauth-openid'
 
 gem 'omniauth-openid-connect'
 
+gem 'openid_connect'
+
 gem 'cancancan'
+
+gem 'thumbs_up'
+
+gem 'protected_attributes'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -63,5 +63,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
+  gem 'meta_request'
 end
 
