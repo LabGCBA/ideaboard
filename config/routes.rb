@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     
     # resources :sessions, only: [:new, :create, :destroy]
     # get '/auth/:provider/callback', to: 'sessions#create'
+    
+    get '/baid/login' => 'baid#login', as: 'baid_login'
+    get '/baid/callback' => 'baid#callback', as: 'baid_callback'
   end
 
 

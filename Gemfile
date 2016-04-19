@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use sqlite3 as the database for Active Record
@@ -44,13 +43,15 @@ gem 'omniauth'
 
 gem 'omniauth-openid-connect'
 
-gem 'openid_connect'
+gem 'curb'
 
 gem 'cancancan'
 
 gem 'thumbs_up'
 
 gem 'protected_attributes'
+
+gem 'openid_connect_client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

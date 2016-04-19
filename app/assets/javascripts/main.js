@@ -90,7 +90,7 @@ function ideaClickHandler(element, e) {
     });
 
     $('.comments-modal').show();
-    autosize(newComentarioTextarea);
+    //autosize(newComentarioTextarea);
     loadIdeaData($(element).parents('.idea'));
     
     return false;
