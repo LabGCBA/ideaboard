@@ -4,25 +4,24 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  scope '/expresometro' do
-    root 'ideas#index'
-    post '/ideas/:id' => 'ideas#vote', as: 'vote_idea'
-    devise_for :personas, :path => '', path_names: {sign_in: 'login', sign_out: 'logout'}, controllers: {omniauth_callbacks: "callbacks"}
-    resources :personas, :direcciones, :subsecretarias, :estados, :comentarios
-    
-    resources :ideas do
-      member do
-        get :estados
-        get :comentarios
-      end
+
+  root 'ideas#index'
+  post '/ideas/:id' => 'ideas#vote', as: 'vote_idea'
+  devise_for :personas, :path => '', path_names: {sign_in: 'login', sign_out: 'logout'}, controllers: {omniauth_callbacks: "callbacks"}
+  resources :personas, :direcciones, :subsecretarias, :estados, :comentarios
+  
+  resources :ideas do
+    member do
+      get :estados
+      get :comentarios
     end
-    
-    # resources :sessions, only: [:new, :create, :destroy]
-    # get '/auth/:provider/callback', to: 'sessions#create'
-    
-    get '/baid/login' => 'baid#login', as: 'baid_login'
-    get '/baid/callback' => 'baid#callback', as: 'baid_callback'
   end
+  
+  # resources :sessions, only: [:new, :create, :destroy]
+  # get '/auth/:provider/callback', to: 'sessions#create'
+  
+  get '/baid/login' => 'baid#login', as: 'baid_login'
+  get '/baid/callback' => 'baid#callback', as: 'baid_callback'
 
 
   # Example of regular route:

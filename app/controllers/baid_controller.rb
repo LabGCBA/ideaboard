@@ -14,6 +14,11 @@ class BaidController < ApplicationController
         oidc = OpenIDConnectClient::Client.new('https://id.buenosaires.gob.ar/openid', '81577894', '48f25ce70418480ca688668780be0ce1')
         oidc.redirect_url = "http://192.168.220.68/expresometro/baid/callback"
         oidc.scopes = "openid email profile address phone"
+        oidc.state = session[:state]
+        oidc.params = params
+        
+        puts params.inspect
+        puts oidc.state.inspect
         
         oidc.authenticate()
         

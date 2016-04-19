@@ -272,9 +272,9 @@ Devise.setup do |config|
             port: 443,
             scheme: "https",
             host: "id.buenosaires.gob.ar/openid",
-            identifier: '29123444',
-            secret: 'bcdd127b1e9c4b49b03853ac62fa4535',
-            redirect_uri: "http://localhost:3000/expresometro/auth/openid_connect/callback",
+            identifier: '81577894',
+            secret: '48f25ce70418480ca688668780be0ce1',
+            redirect_uri: "http://192.168.220.68:3000/baid/callback",
         },
     }
 end
