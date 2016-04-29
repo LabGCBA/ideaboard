@@ -1,7 +1,7 @@
                 <%= form_for(idea, remote: true, url: {controller: "ideas", action: "create"}, html: {class: "pure-form"}) do |f| %>
                     <input id="idea_categoria" name="idea[categoria_id]" value="" type="hidden">
                     <%= f.text_area :texto, rows: 1, class: "pure-input-3-4" %>
-                    <%= submit_tag "Publicar", class: "pure-button pure-button-primary" %> 
+                    <%= submit_tag "Publicar", class: "pure-button pure-button-primary new-idea-submit-button" %> 
                     <div class="etiquetas-slider-wrapper">
                         <div class="etiquetas-slider">
                             <a href="" class="categoria comida-bebida" data-category="1">Comida/Bebida</a>

@@ -1,13 +1,18 @@
-            <article id="idea_<%= idea.id %>" class="idea <%= idea.categoria.nombre.downcase.parameterize.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %>" data-filter="<%= '.' + idea.categoria.nombre.downcase.parameterize.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %>" data-date="<%= idea.created_at %>">
-                <aside class="tag">
+            <article id="idea_<%= idea.id %>" class="idea <%= idea.categoria.nombre.downcase.parameterize.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %> <%= idea.etapa.nombre.downcase.parameterize.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %>" data-filter="" data-date="<%= idea.created_at %>">
+                <aside class="tags">
                     <a href="" class="categoria"><%= idea.categoria.nombre.downcase %></a>
+                    <span class="tag-separator"> | </span>
+                    <a href="" class="etapa"><%= idea.etapa.nombre.downcase %></a>
                 </aside>
                 <div class="content">
                     <a href="" class="modal-open"><%= idea.texto %></a>
                 </div>
                 <aside class="metadata">
-                    <div class="nombre"><%= idea.persona.nombre %></div>
-                    <div class="area"><%= idea.persona.direccion.nombre %></div>
+                    <div class="nombre"><%= idea.persona.nombre_apellido %></div>
+                    <!--<div class="area"><%= if idea.persona.direccion then idea.persona.direccion.nombre else "" end  %></div>-->
+                    <% if ability.can? :destroy, idea %>
+                        <%= link_to 'Borrar', idea, method: :delete, data: { confirm: '¿Seguro?' }, :remote => true, :class => 'borrar_idea' %>
+                    <% end %>
                 </aside>
                 <aside class="actionables">
                     <div class="votar">
@@ -16,7 +21,5 @@
                         <% end %>
                         <span class="votos"><%= idea.votes_for %></span>
                     </div>
-                    
                 </aside>
             </article>
-                        

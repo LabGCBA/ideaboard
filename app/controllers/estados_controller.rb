@@ -1,4 +1,6 @@
 class EstadosController < ApplicationController
+  before_action :set_ability
+  
   def index
   end
   
@@ -19,4 +21,10 @@ class EstadosController < ApplicationController
   
   def destroy
   end
+  
+  private
+  
+      def set_ability
+          @ability = Ability.new(current_persona)
+      end
 end

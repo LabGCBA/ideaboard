@@ -1,29 +1,58 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :personas
+resources :categoria
+resources :comentarios
+resources :direcciones
+resources :estados
+resources :ideas
+resources :roles
+resources :subsecretarias
+resources :votes
+
+    root to: "personas#index"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
 
-  root 'ideas#index'
-  post '/ideas/:id' => 'ideas#vote', as: 'vote_idea'
-  devise_for :personas, :path => '', path_names: {sign_in: 'login', sign_out: 'logout'}, controllers: {omniauth_callbacks: "callbacks"}
-  resources :personas, :direcciones, :subsecretarias, :estados, :comentarios
+  scope :expresometro do
+
+      root 'ideas#index'
+      get '/tv' => 'ideas#tv'
+      post '/ideas/:id' => 'ideas#vote', as: 'vote_idea'
+      
+      # get '/baid/callback' => redirect(path: '/expresometro/personas/auth/openid_connect/callback')
   
-  resources :ideas do
-    member do
-      get :estados
-      get :comentarios
+      resources :direcciones, :subsecretarias, :estados, :comentarios
+  
+      resources :ideas do
+          member do
+              get :estados
+              get :comentarios
+          end
+      end
+      
+      devise_for :personas, controllers: {
+           omniauth_callbacks: 'personas/omniauth_callbacks', 
+           sessions: 'personas/sessions',
+           registrations: 'personas/registrations',
+           passwords: 'personas/passwords'
+      }
+      
+      devise_scope :persona do
+        get '/baid/login' => 'callbacks#baid_login', as: 'baid_login'
+        get '/baid/callback' => 'callbacks#baid_callback', as: 'baid_callback'
     end
-  end
-  
+ end
+
   # resources :sessions, only: [:new, :create, :destroy]
   # get '/auth/:provider/callback', to: 'sessions#create'
+  # get '/baid/login' => 'baid#login', as: 'baid_login'
   
-  get '/baid/login' => 'baid#login', as: 'baid_login'
-  get '/baid/callback' => 'baid#callback', as: 'baid_callback'
-
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

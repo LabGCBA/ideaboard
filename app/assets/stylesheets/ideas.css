@@ -4,6 +4,7 @@
 
 .ideas-wrapper {
     width: 100% !important;
+    min-height: 50vh;
     margin: 0;
 }
 
@@ -65,15 +66,23 @@ section.ideas-wrapper .ideas article.idea:before {
     display: table;
 }
 
+article.idea .content {
+    padding: 5px 0px 0px 0px !important;
+    background-color: white !important;
+}
+
 section.ideas-wrapper .ideas article.idea .content {
     height: 100px;
-    margin-bottom: 20px;
-    padding-top: 5px;
+    margin-bottom: 15px;
     font-weight: 500;
 }
 
 article.idea .content a {
+    width: inherit;
+    height: inherit;
+    display: table-cell;
     text-decoration: none;
+    color: black;
 }
 
 article.idea .content a:visited {
@@ -85,8 +94,7 @@ article.idea .content::selection {
 }
 
 article.idea .metadata {
-    margin-top: 20px;
-    margin-bottom: 15px;
+    margin-top: 25px;
     font-family: 'GothamRoundedBook' !important;
     font-size: 16px;
 	line-height: 17px;
@@ -94,7 +102,7 @@ article.idea .metadata {
 }
 
 article.idea .actionables {
-    margin-top: 30px;
+    margin-top: 25px;
     margin-bottom: 10px;
     float: right;
 }
@@ -150,19 +158,24 @@ section.ideas-wrapper .ideas article.idea:after {
 }
 
 .comments-modal article.idea {
+    margin-bottom: 69px !important;
     padding: 25px;
+    padding-bottom: 10px;
     min-width: 350px;
     background-color: #fff !important;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    overflow: auto;
+    overflow: hidden;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: relative;
 }
 
-.comments-modal article.idea .tag {
+.comments-modal article.idea .tags {
     
 }
 
-.comments-modal article.idea .tag a.content {
+.comments-modal article.idea .tags a.content {
     
 }
 
@@ -178,7 +191,7 @@ section.ideas-wrapper .ideas article.idea:after {
 }
 
 .comments-modal article.idea .metadata, .comments-modal article.idea .actionables {
-    margin-bottom: 0px !important;
+    
 }
 
 .comments-modal article.idea aside.metadata, .comments-modal .estado, .comentarios span.header, .comentarios .comentario {
@@ -190,13 +203,27 @@ section.ideas-wrapper .ideas article.idea:after {
     
 }
 
+.comments-modal article.idea:after {
+    margin-top: 68px;
+    display: block;
+    position: fixed;
+    height: 0;
+    width: 0;
+    border-right: 15px solid #fff;
+    border-left: 15px solid transparent;
+    border-top: 14px solid #fff;
+    border-bottom: 13px solid transparent;
+    z-index: 0;
+    content: ' ';
+    left: 25px;
+}
+
 .comments-modal .estado {
+    min-width: 350px;
     clear: both;
     margin-top: -1px;
     padding: 25px;
     border-top: 2px solid #ccc;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
     position: relative;
     background-color: #fff !important;
     z-index: 1;
@@ -213,19 +240,4 @@ section.ideas-wrapper .ideas article.idea:after {
 
 .comments-modal .estado .nombre {
     font-style: italic;
-}
-
-.comments-modal .estado:after {
-    margin-top: 24px;
-    display: block;
-    position: absolute;
-    height: 0;
-    width: 0;
-    border-right: 15px solid #fff;
-    border-left: 15px solid transparent;
-    border-top: 14px solid #fff;
-    border-bottom: 13px solid transparent;
-    z-index: 0;
-    content: ' ';
-    left: 25px;
 }

@@ -41,17 +41,19 @@ gem 'devise'
 
 gem 'omniauth'
 
-gem 'omniauth-openid-connect'
-
 gem 'curb'
 
 gem 'cancancan'
 
 gem 'thumbs_up'
 
-gem 'protected_attributes'
+gem 'switch_user'
 
-gem 'openid_connect_client'
+gem 'rolify'
+
+gem 'adminlte-generators'
+
+# gem "paranoia"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

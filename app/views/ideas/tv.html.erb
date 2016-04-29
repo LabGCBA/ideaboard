@@ -1,0 +1,124 @@
+    <div class="container pure-g">
+        <header class="pure-u-1">
+            <h1 class="title">Expresómetro</h1>
+            <img src="<%= image_path("mural.png") %>" alt="">
+        </header>
+        <section class="grid pure-u-1 ideas-wrapper">
+ 
+            <div class="ideas">
+                <div class="item-sizer"></div>
+                <div class="gutter-sizer"></div>
+                <% @ideas.each do |idea| %>
+                    <%= render partial: 'idea', locals: { idea: idea, ability: @ability} %>
+                <% end %>
+            </div>
+         </section>
+         <section id="comments-modal">
+            <article class="idea" data-filter="" data-date="">
+                <aside class="tags">
+                    <span class="categoria"></span>
+                    <span class="tag-separator"> | </span>
+                    <span class="etapa"></span>
+                </aside>
+                <div class="content">
+                    
+                </div>
+                <aside class="metadata">
+                    <div class="nombre"></div>
+                    <!--<div class="area"></div>-->
+                </aside>
+                <aside class="actionables">
+                    <div class="votar">
+                            <img src="<%= image_path("corazon.svg") %>">
+                        <span class="votos"></span>
+                    </div>
+                </aside>
+            </article>
+             <!--<div class="estado">
+                <span class="header">Estado propuesta</span>
+                <div class="texto"></div>
+                <div class="nombre"></div>
+            </div>-->
+            <div class="comentarios">
+                <span class="header">Comentarios</span>
+                <%= render partial: 'comentarios/form', locals: { idea: @idea, comentario: @new_comentario} %>
+                <div class="comentarios-wrapper">
+                </div>
+            </div>
+         </section>
+    </div>
+    <script>
+        function scrollDown(el) {
+            var time = $(document).height() * 23;
+            
+            setTimeout(function() {
+                el.animate({
+                    scrollTop: $(document).height(),
+                    easing: 'linear'
+                }, time, function() {
+                    scrollUp(el);
+                });
+            }, 10000);
+            
+            refresh();
+        };
+
+        function scrollUp(el) {
+            var time = $(document).height() * 15;
+            
+            el.animate({
+                scrollTop: 0,
+                easing: 'linear'
+            }, time, function() {
+                scrollDown(el);
+            });
+        };
+
+        function refresh() {
+            var url = $(location).attr('href').substr(0, ($(location).attr('href').length - 3)) + '.js';
+
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: "text",
+                success: function(result) {
+                    $grid.isotope('destroy');
+                    
+                    $('.ideas .gutter-sizer').html(result);
+                    
+                    $grid.isotope({
+                        itemSelector: '.idea',
+                        percentPosition: true,
+                        transitionDuration: '0.3s',
+                        // isInitLayout: false,
+                        // layoutMode: 'packery',
+                        masonry: {
+                            gutter: '.gutter-sizer',
+                            columnWidth: '.idea',
+                            // resize: true,
+                        },
+                        getSortData: {
+                            votos: '.votos parseInt', // text from querySelector
+                            fecha: function (element) {
+                                return Date.parse($(element).attr('data-date'));
+                            }
+                        },
+                        // sortBy: 'votos',
+                        // sortAscending: false,
+                    });
+                    
+                    reFitIdeaText();
+                },
+                error: function(xhr, error) {
+                    console.log(error);
+                    console.log(xhr);
+                },
+            });
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            //window.setInterval(refresh, 3000);
+            scrollDown($("body"));
+         });
+        
+    </script>

@@ -5,6 +5,7 @@ class CreateIdeas < ActiveRecord::Migration
       
       t.references :persona
       t.references :categoria
+      t.references :etapa
       t.timestamps null: false
     end
   end

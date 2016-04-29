@@ -1,6 +1,6 @@
                 <%= form_for([@idea, @idea.comentarios.new], remote: true, url: {controller: "comentarios", action: "create"}, html: {class: "pure-form"}) do |f| %>
                     <input id="comentario_idea_id" name="comentario[idea_id]" value="" type="hidden">
-                    <%= f.text_area :texto, rows: 1, class: "pure-input" %>
-                    <%= submit_tag "Enviar", class: "pure-button pure-button-primary" %>
+                    <%= f.text_area :texto, rows: 1, class: "pure-input new-comment-textarea" %>
+                    <%= submit_tag "Enviar", class: "pure-button pure-button-primary new-comment-submit-button" %>
                     <button type="reset" class="pure-button">Cancelar</button>
                 <% end %>

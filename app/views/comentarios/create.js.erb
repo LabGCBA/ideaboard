@@ -1,12 +1,19 @@
-var newCommentTextarea = $("#new_comentario .pure-input");
-var htmlComment = $('<%= 
-    j(render(partial: 'comentarios/comentario', locals: { comentario: @comentario })) 
-%>');
+<% if not @bloquear %>
+    var newCommentTextarea = $("#new_comentario .pure-input");
+    var htmlComment = $('<%= 
+        j(render(partial: 'comentarios/comentario', locals: { comentario: @comentario })) 
+    %>');
 
-htmlComment.appendTo('.comentarios .comentarios-wrapper').hide();
-htmlComment.fadeIn( "slow");
+    htmlComment.appendTo('.comentarios .comentarios-wrapper').hide();
+    htmlComment.fadeIn("slow");
 
-$('.comentarios').animate({"scrollTop": $('.comentarios').actual('outerHeight', { includeMargin : true }) * 3}, "slow");
+    $('.comentarios').animate({"scrollTop": $('.comentarios').actual('outerHeight', { includeMargin : true }) * 3}, "slow");
 
-newCommentTextarea.val('');
-autosize.update(newCommentTextarea);
+    newCommentTextarea.val('');
+    autosize.update(newCommentTextarea);
+<% end %>
+<% if @mensajes.length > 0 %>
+    <% @mensajes.each do |mensaje| %>
+        notifyError('<%= mensaje %>');
+    <% end %>
+<% end %>

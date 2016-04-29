@@ -1,0 +1,9 @@
+<% if persona_signed_in? %>
+  <li>
+  <%= link_to('Salir', destroy_persona_session_path, :method => :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Loguearse', baid_login_path) %>  
+  </li>
+<% end %>

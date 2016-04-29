@@ -23,7 +23,7 @@ direcciones.times do |i|
   Direccion.create(nombre: "Dirección #{i + 1}", subsecretaria: Subsecretaria.find(1 + rand(subsecretarias)))
 end
 
-Persona.create(nombre: "Juan Pérez", email: "juan@perez.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
+Persona.create(nombre: "Pobrecito Hablador", email: "pobrecito@hablador.com", password: 12345678)
 Persona.create(nombre: "Martín Fernández", email: "martin@fernandez.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
 Persona.create(nombre: "Miguel Gómez", email: "miguel@gomez.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
 Persona.create(nombre: "Fernando González", email: "fernando@gonzalez.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
@@ -33,7 +33,7 @@ Persona.create(nombre: "Laurel Lance", email: "laurel@lance.com", direccion: Dir
 Persona.create(nombre: "Felicity Smoak", email: "felicity@smoak.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
 Persona.create(nombre: "Iris West", email: "iris@west.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
 Persona.create(nombre: "Barry Allen", email: "barry@allen.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
-Persona.create(nombre: "Admin", email: "admin@mail.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678, admin: true)
+Persona.create(nombre: "Admin", email: "admin@mail.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
 
 personas = Persona.count
 
@@ -45,12 +45,17 @@ Categoria.create(nombre: "Comunicación")
 Categoria.create(nombre: "Beneficios")
 Categoria.create(nombre: "Insumos")
 
+Etapa.create(nombre: "Nueva")
+Etapa.create(nombre: "En Proceso")
+Etapa.create(nombre: "Completada")
+Etapa.create(nombre: "Rechazada")
+
 ideas.times do |i|
-  Idea.create(texto: "Quisiera que haya dispensers de alcohol en gel", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(4))
-  Idea.create(texto: "Una parrilla en la terraza!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(4))
-  Idea.create(texto: "Me gustaría que no falte detergente en la cocina.", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(7))
-  Idea.create(texto: "Free snacks!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(6))
-  Idea.create(texto: "Estaría bueno que pongan un tele en el comedor...!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(4))
+  Idea.create(texto: "Quisiera que haya dispensers de alcohol en gel", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(4), etapa: Etapa.first)
+  Idea.create(texto: "Una parrilla en la terraza!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(4), etapa: Etapa.first)
+  Idea.create(texto: "Me gustaría que no falte detergente en la cocina.", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(7), etapa: Etapa.first)
+  Idea.create(texto: "Free snacks!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(6), etapa: Etapa.first)
+  Idea.create(texto: "Estaría bueno que pongan un tele en el comedor...!", persona: Persona.find(1 + rand(personas).round), categoria: Categoria.find(4), etapa: Etapa.first)
 end
 
 totalIdeas = Idea.count

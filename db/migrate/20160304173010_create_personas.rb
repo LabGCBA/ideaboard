@@ -1,10 +1,8 @@
 class CreatePersonas < ActiveRecord::Migration
   def change
     create_table :personas do |t|
-      t.string :baid
-      t.string :nombre, limit: 250
-      t.boolean :mod, default: false
-      t.boolean :admin, default: false
+      t.string :nombre, limit: 150
+      t.string :apellido, limit: 150
       
       t.references :direccion
       t.timestamps null: false

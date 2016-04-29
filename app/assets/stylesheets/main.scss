@@ -34,9 +34,10 @@
          font-url('fonts/gothamrnd-light.svg#GothamRoundedLight') format('svg');
 }
 
-body {
-    background: #ffc403;
+html, body {
     zoom: 1;
+    -moz-osx-font-smoothing: grayscale;
+    background: #ffc403;
 }
 
 .container {
@@ -75,6 +76,7 @@ header > h1 {
     top: 40%;
     text-align: center;
     width: 100%;
+    color: black !important;
 }
 
 header, section {
@@ -168,7 +170,6 @@ section *::selection {
     color: white;
     background-color: black;
     font-family: 'GothamRoundedMedium';
-    text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.05em;
 }

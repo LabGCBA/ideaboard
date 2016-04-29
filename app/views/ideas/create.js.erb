@@ -1,16 +1,21 @@
+<% if @mensaje %>
+    notifyError('<%= @mensaje %>');
+<% else %>
+    var html = $('<%= 
+        j(render(partial: 'ideas/idea', locals: { idea: @idea, ability: @ability })) 
+    %>');
+
+    $(html).on("click", ".content", function(e) {
+        ideaClickHandler(this, e);
+    });   
+
+    $(".ideas").prepend(html).isotope('prepended', html);
+    recalculateGrid();
+
+    ideaCache.push("<%= j @idea.texto %>");  
+<% end %>
+
 var newIdeaTextarea = $("#new_idea .pure-input-3-4");
-var html = $('<%= 
-    j(render(partial: 'ideas/idea', locals: { idea: @idea })) 
-%>');
-
-$(html).on("click", ".content", function(e) {
-    ideaClickHandler(this, e);
-});   
-
-$(".ideas").prepend(html).isotope('prepended', html);
-recalculateGrid();
-
-ideaCache.push("<%= j @idea.texto %>");  
 
 if (newIdeaTextarea.is(":focus")) {
     newIdeaTextarea.val(promptActive);

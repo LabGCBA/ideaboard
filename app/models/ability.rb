@@ -1,7 +1,7 @@
 class Ability
   include CanCan::Ability
-
-  def initialize(user)
+  
+  def initialize(persona)
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
@@ -28,11 +28,23 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-    persona = current_persona # guest user (not logged in)
-    if persona.admin?
+    persona ||= Persona.new
+    
+    if persona.has_role? :admin
       can :manage, :all
+      can :read, :all
+    elsif persona.has_role? :editor
+      can [:destroy, :update], Idea
+      can [:create, :update], Comentario, :persona_id => persona.id
+      can :destroy, Comentario
+      can :read, :all
+    elsif persona.has_role? :usuario
+      can :create, Idea
+      can [:update, :destroy], Idea, :persona_id => persona.id
+      can [:create, :update], Comentario, :persona_id => persona.id
     else
-      can :vote, :all
+      can :read, :all
+      can :create, Comentario
     end
   end
 end

@@ -1,0 +1,9 @@
+<% if persona_signed_in? %>
+  <li>
+  <%= link_to('Edit registration', edit_persona_registration_path) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Register', new_persona_registration_path)  %>
+  </li>
+<% end %>

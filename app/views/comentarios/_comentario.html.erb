@@ -1,4 +1,7 @@
-                    <div class="comentario">
-                        <div class="nombre"><%= comentario.persona.nombre %></div>
-                        <div class="texto"><%= comentario.texto %></div>
+                    <div class='comentario' id='comentario_<%= comentario.id %>'>
+                        <div class='nombre'><%= comentario.persona.nombre_apellido %></div>
+                        <% if @ability.can? :destroy, comentario %>
+                            <%= link_to 'Borrar', comentario, method: :delete, data: { confirm: '¿Seguro?' }, :remote => true, :class => 'borrar_comentario' %>
+                        <% end %>
+                        <div class='texto'><%= comentario.texto %></div>
                     </div>

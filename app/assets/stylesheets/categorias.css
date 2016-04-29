@@ -1,15 +1,15 @@
-.categoria {
+.categoria, .etapa {
    color: #777;
    font-family: 'GothamRoundedMedium' !important;
    text-decoration: none;
 }
 
-.categoria:visited {
+.categoria:visited, .etapa:visited {
     text-decoration: none;
     color: #777;
 }
 
-.categoria:active {
+.categoria:active, .etapa:active {
     text-decoration: none;
     color: black;
 }

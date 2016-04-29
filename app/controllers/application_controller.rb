@@ -1,9 +1,8 @@
-# openid tutorial https://thirstyforcola.wordpress.com/2013/06/30/setting-up-openid-on-rails/
-
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception, unless: -> { request.format.json? }
+  alias_method :current_user, :current_persona
   
   # if persona is logged in, return current_persona, else return guest_persona
   def current_or_guest_persona
@@ -32,8 +31,16 @@ class ApplicationController < ActionController::Base
   end
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+  if persona_signed_in?
+    render json: { message: "You don't have permissions." }, status: :forbidden
+  else
+    render json: { message: "You need to be logged in." }, status: :unauthorized
   end
+end
+  
+  # rescue_from CanCan::AccessDenied do |exception|
+  #  redirect_to root_url, :alert => exception.message
+  # end
 
   private
 
@@ -55,5 +62,5 @@ class ApplicationController < ActionController::Base
     session[:guest_persona_id] = persona.id
     persona
   end
-
+  
 end

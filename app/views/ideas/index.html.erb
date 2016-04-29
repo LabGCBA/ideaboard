@@ -4,6 +4,9 @@
             <img src="<%= image_path("mural.png") %>" alt="">
         </header>
         <section class="grid pure-u-1 form">
+        
+  	    <%= render 'devise/menu/login_items' %>
+
             <%= render partial: 'form', locals: { idea: @idea} %>
             <% flash.each do |name, msg| %>
                 <%= content_tag :div, msg, class: "ui alert" %>
@@ -16,7 +19,7 @@
                 <li class="pure-menu-item mas-votadas"><a href="" class="pure-menu-link">Más Votadas</a></li>
                 <li class="pure-menu-item mas-nuevas"><a href="" class="pure-menu-link">Más Nuevas</a></li>
                 <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                    <a href="" id="etiquetas-nav" class="pure-menu-link">Etiqueta</a>
+                    <a href="" id="etiquetas-nav" class="pure-menu-link">Etiquetas</a>
                     <ul class="pure-menu-children etiquetas">
                         <li class="pure-menu-item" data-filter=".comida-bebida"><a href="" class="pure-menu-link comida-bebida">Comida/Bebida</a></li>
                         <li class="pure-menu-item" data-filter=".capacitaciones"><a href="" class="pure-menu-link capacitaciones">Capacitaciones</a></li>
@@ -27,6 +30,15 @@
                         <li class="pure-menu-item" data-filter=".insumos"><a href="" class="pure-menu-link insumos">Insumos</a></li>
                     </ul>
                 </li>
+                <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                    <a href="" id="etapas-nav" class="pure-menu-link">Etapas</a>
+                    <ul class="pure-menu-children etapas">
+                        <li class="pure-menu-item" data-filter=".nueva"><a href="" class="pure-menu-link nueva">Nueva</a></li>
+                        <li class="pure-menu-item" data-filter=".en-proceso"><a href="" class="pure-menu-link en-proceso">En Proceso</a></li>
+                        <li class="pure-menu-item" data-filter=".completada"><a href="" class="pure-menu-link completada">Completada</a></li>
+                        <li class="pure-menu-item" data-filter=".rechazada"><a href="" class="pure-menu-link rechazada">Rechazada</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <section class="grid pure-u-1 ideas-wrapper">
@@ -35,21 +47,25 @@
                 <div class="item-sizer"></div>
                 <div class="gutter-sizer"></div>
                 <% @ideas.each do |idea| %>
-                    <%= render partial: 'idea', locals: { idea: idea} %>
+                    <%= render partial: 'idea', locals: { idea: idea, ability: @ability} %>
                 <% end %>
             </div>
          </section>
          <section id="comments-modal">
             <article class="idea" data-filter="" data-date="">
-                <aside class="tag">
+                <aside class="tags">
                     <span class="categoria"></span>
+                    <span class="tag-separator"> | </span>
+                    <% @etapas.each do |etapa| %>
+                        <span class="etapa"><%= etapa.nombre.downcase %></span>
+                    <% end %>
                 </aside>
                 <div class="content">
                     
                 </div>
                 <aside class="metadata">
                     <div class="nombre"></div>
-                    <div class="area"></div>
+                    <!--<div class="area"></div>-->
                 </aside>
                 <aside class="actionables">
                     <div class="votar">
@@ -58,19 +74,15 @@
                     </div>
                 </aside>
             </article>
-            <div class="estado">
-                <span class="header">Estado propuesta - </span>
+             <!--<div class="estado">
+                <span class="header">Estado propuesta</span>
                 <div class="texto"></div>
                 <div class="nombre"></div>
-            </div>
+            </div>-->
             <div class="comentarios">
                 <span class="header">Comentarios</span>
                 <%= render partial: 'comentarios/form', locals: { idea: @idea, comentario: @new_comentario} %>
                 <div class="comentarios-wrapper">
-                    <div class="comentario">
-                        <div class="nombre"></div>
-                        <div class="texto"></div>
-                    </div>
                 </div>
             </div>
          </section>

@@ -1,0 +1,3 @@
+<% html = escape_javascript(render(partial: "comentarios", locals: { comentarios: @comentarios, ability: @ability })) %>
+
+$('.comentarios .comentarios-wrapper').html('<%= html %>');
