@@ -56,8 +56,12 @@
                 <aside class="tags">
                     <span class="categoria"></span>
                     <span class="tag-separator"> | </span>
-                    <% @etapas.each do |etapa| %>
-                        <span class="etapa"><%= etapa.nombre.downcase %></span>
+                    <% if current_persona and (current_persona.has_role? :admin or current_persona.has_role? :editor) %>
+                        <% @etapas.each do |etapa| %>
+                            <span class="etapa etapa-<%= etapa.id %>"><a href=""><%= etapa.nombre.downcase %></a></span>
+                        <% end %>
+                    <% else%>
+                        <span class="etapa"><a href=""></a></span>
                     <% end %>
                 </aside>
                 <div class="content">

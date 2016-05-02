@@ -5,6 +5,40 @@ promptActive = "Me gustaría "
 newIdeaTextarea = $("#idea_texto");
 newCommentTextarea = $("textarea").last();
 
+function replaceSVGs() {
+    /*
+    * Replace all SVG images with inline SVG
+    */
+    $('img.svg').each(function(){
+        var $img = $(this);
+        var imgID = $img.attr('id');
+        var imgClass = $img.attr('class');
+        var imgURL = $img.attr('src');
+
+        $.get(imgURL, function(data) {
+            // Get the SVG tag, ignore the rest
+            var $svg = $(data).find('svg');
+
+            // Add replaced image's ID to the new SVG
+            if(typeof imgID !== 'undefined') {
+                $svg = $svg.attr('id', imgID);
+            }
+            // Add replaced image's classes to the new SVG
+            if(typeof imgClass !== 'undefined') {
+                $svg = $svg.attr('class', imgClass+' replaced-svg');
+            }
+
+            // Remove any invalid XML tags as per http://validator.w3.org
+            $svg = $svg.removeAttr('xmlns:a');
+
+            // Replace image with new SVG
+            $img.replaceWith($svg);
+
+        }, 'xml');
+
+    });
+}
+
 function setSelectionRange(input, selectionStart, selectionEnd) {
     if (input.setSelectionRange) {
         input.focus();
@@ -27,8 +61,8 @@ function notifyError(message) {
     noty({
         text: message,
         animation: {
-            open: {height: 'toggle'}, // jQuery animate function property object
-            close: {height: 'toggle'}, // jQuery animate function property object
+            open: {height: 'toggle'}, // $ animate function property object
+            close: {height: 'toggle'}, // $ animate function property object
             easing: 'swing', // easing
             speed: 500, // opening & closing animation speed
             type: 'error',
@@ -42,22 +76,15 @@ function validateNewIdeaForm(form) {
     var text = $.trim(newIdeaTextarea.val());
     var tieneEtiqueta = false;
 
-    if (ideaCache.indexOf(text) !== -1 || text.length === 0) {
+    if (ideaCache.indexOf(text) !== -1) {
+        notifyError("Ya enviaste esa idea!")
         return false
     }
     else if (text === prompt || text === promptActive) {
-        notifyError("No escribite nada!");
-        return false;
+        notifyError("No escribiste nada!")
+        return false
     }
-    else if (text.length < 20) {
-        notifyError("No menos de 20 caracteres!");
-        return false;
-    }
-    else if (text.length > 300) {
-        notifyError("No más de 300 caracteres!");
-        return false;
-    }
-
+  
     $('.etiquetas-slider a').each(function() {
         if ($(this).hasClass("etiqueta-active")) tieneEtiqueta = true;
     });
@@ -66,9 +93,11 @@ function validateNewIdeaForm(form) {
         tieneEtiqueta = false;
         return true;
     }
-    else {
-        notifyError("Debe elegir una etiqueta!");
-        return false;
+    else{
+        $('#idea_categoria').val(0);
+        return true;
+        //notifyError("Debe elegir una etiqueta!");
+        //return false;
     }
 }
 
@@ -220,7 +249,8 @@ function documentReadyEvents() {
 
 $(document).ready(function() {
     documentReadyEvents();
-    
+
+    // replaceSVGs();
     moment.locale('es');
     $('.etiquetas-slider-wrapper').addClass('slideUp');
     newIdeaTextarea.val(prompt);

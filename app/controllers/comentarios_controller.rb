@@ -11,13 +11,14 @@ class ComentariosController < ApplicationController
   end
   
   def create
+  Rails.logger.debug("debug::" + comment_params.inspect)
     @comentario = Comentario.new(comment_params)
+    @mensajes = []
     
     if persona_signed_in?
       @comentario.persona_id = current_persona.id
     else 
       @comentario.persona_id = Persona.find_by(email: 'pobrecito@hablador.com').id
-      @mensajes = []
       @mensajes << "Logueate para comentar con tu nombre."
     end
     

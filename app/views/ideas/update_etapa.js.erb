@@ -1,0 +1,14 @@
+var selectorIdeaId = '#idea_' + <%= @idea.id %>;
+var nuevaEtapaId = <%= @idea.etapa.id %>;
+var selectorNuevaEtapa = '.comments-modal .tags .etapa-' + nuevaEtapaId;
+var antiguaEtapa = $('.comments-modal .tags .etapa.activa');
+
+antiguaEtapa.removeClass('activa');
+$(selectorNuevaEtapa).addClass("activa");
+
+$(selectorIdeaId).find('.tags .etapa').text(<%= @idea.etapa.nombre.downcase %>)
+
+
+console.log("Nueva Etapa ID: " + nuevaEtapaId);
+alert("Idea ID: " + <%= @idea.etapa.id %>);
+console.log("Etapa Nobre: " + <%= @idea.etapa.nombre.downcase %>);

@@ -12,7 +12,7 @@
     newCommentTextarea.val('');
     autosize.update(newCommentTextarea);
 <% end %>
-<% if @mensajes.length > 0 %>
+<% if @mensajes and @mensajes.length > 0 %>
     <% @mensajes.each do |mensaje| %>
         notifyError('<%= mensaje %>');
     <% end %>

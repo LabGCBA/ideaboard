@@ -24,6 +24,7 @@ resources :votes
       root 'ideas#index'
       get '/tv' => 'ideas#tv'
       post '/ideas/:id' => 'ideas#vote', as: 'vote_idea'
+      post '/ideas/:id/etapa/:etapa_id' => 'ideas#update_etapa', as: 'update_etapa' 
       
       # get '/baid/callback' => redirect(path: '/expresometro/personas/auth/openid_connect/callback')
   

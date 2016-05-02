@@ -14,7 +14,7 @@ class Persona < ActiveRecord::Base
   # attr_accessible :nombre, :email, :direccion, :password, :identity_url
   
   validates :email, uniqueness: true, presence: true
-  after_create { add_role :user if self.roles.blank? }
+  after_create { add_role :usuario if self.roles.blank? }
   
   def self.from_omniauth(auth, signed_in_resource=nil)
       persona = Persona.where(uid: auth.uid).first

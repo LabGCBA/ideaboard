@@ -1,9 +1,5 @@
 <% if persona_signed_in? %>
-  <li>
-  <%= link_to('Salir', destroy_persona_session_path, :method => :delete) %>        
-  </li>
+  <%= link_to('Salir', destroy_persona_session_path, :method => :delete, class: "btn-login") %>        
 <% else %>
-  <li>
-  <%= link_to('Loguearse', baid_login_path) %>  
-  </li>
+  <%= link_to('Iniciar Sesión', baid_login_path, class: "btn-login") %>  
 <% end %>

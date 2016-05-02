@@ -1,2 +1,3 @@
 $("#idea_<%= @idea.id %>.idea .actionables .votos").html("<%= @idea.votes_for %>");
+$("#idea_<%= @idea.id %>.idea .actionables a img").addClass("votada");
 $('.ideas').isotope('updateSortData');

@@ -101,6 +101,11 @@ section *::selection {
     text-transform: uppercase;
 }
 
+a, a:visited, a:hover {
+    color: black;
+}
+
+
 .form {
     margin: 0;
     width: 100%;
@@ -188,7 +193,6 @@ section *::selection {
 .noty_bar {
     background: black !important;
     font-family: 'GothamRoundedMedium';
-    font-weight: 500;
     font-size: 20px;
     color: white;
     text-transform: uppercase;
@@ -199,6 +203,18 @@ section *::selection {
 #noty_top_layout_container li {
     border: none !important;
     box-shadow: none !important;
+}
+
+.btn-login {
+    font-family: 'GothamRoundedBold';
+    font-size: 16px;
+    color: black;
+    text-transform: uppercase;
+    padding-top: 5px;
+}
+
+.ui-alert {
+    padding: 0px !important;
 }
 
 /*

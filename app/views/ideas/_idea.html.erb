@@ -1,25 +1,28 @@
-            <article id="idea_<%= idea.id %>" class="idea <%= idea.categoria.nombre.downcase.parameterize.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %> <%= idea.etapa.nombre.downcase.parameterize.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %>" data-filter="" data-date="<%= idea.created_at %>">
-                <aside class="tags">
-                    <a href="" class="categoria"><%= idea.categoria.nombre.downcase %></a>
-                    <span class="tag-separator"> | </span>
-                    <a href="" class="etapa"><%= idea.etapa.nombre.downcase %></a>
-                </aside>
-                <div class="content">
-                    <a href="" class="modal-open"><%= idea.texto %></a>
-                </div>
-                <aside class="metadata">
-                    <div class="nombre"><%= idea.persona.nombre_apellido %></div>
-                    <!--<div class="area"><%= if idea.persona.direccion then idea.persona.direccion.nombre else "" end  %></div>-->
-                    <% if ability.can? :destroy, idea %>
-                        <%= link_to 'Borrar', idea, method: :delete, data: { confirm: '¿Seguro?' }, :remote => true, :class => 'borrar_idea' %>
-                    <% end %>
-                </aside>
-                <aside class="actionables">
-                    <div class="votar">
-                        <%= link_to(vote_idea_path(idea), method: :post, :remote => true) do %>
-                            <img src="<%= image_path("corazon.svg") %>">
-                        <% end %>
-                        <span class="votos"><%= idea.votes_for %></span>
+            <% if not idea.nil? %>
+                <article id="idea_<%= idea.id %>" class="idea <%= idea.categoria.nombre.downcase.parameterize.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %> <%= idea.etapa.nombre.downcase.parameterize.gsub(/[^a-z0-9_-]/, '-').squeeze('-') %>" data-filter="" data-date="<%= idea.created_at %>">
+                    <aside class="tags">
+                        <a href="" class="categoria"><%= idea.categoria.nombre.downcase %></a>
+                        <span class="tag-separator"> | </span>
+                        <a href="" class="etapa etapa-<%= idea.etapa.id %>"><%= idea.etapa.nombre.downcase %></a>
+                    </aside>
+                    <div class="content">
+                        <a href="" class="modal-open"><%= idea.texto %></a>
                     </div>
-                </aside>
-            </article>
+                    <aside class="metadata">
+                        <div class="nombre"><%= idea.persona.nombre_apellido %></div>
+                        <!--<div class="area"><%= if idea.persona.direccion then idea.persona.direccion.nombre else "" end  %></div>-->
+                        <% if ability.can? :destroy, idea %>
+                            <%= link_to 'Borrar', idea, method: :delete, data: { confirm: '¿Seguro?' }, :remote => true, :class => 'borrar_idea' %>
+                        <% end %>
+                    </aside>
+                    <aside class="actionables">
+                        <div class="votar">
+                            <%= link_to(vote_idea_path(idea), method: :post, :remote => true) do %>
+                                <% votada = true if current_persona and current_persona.voted_for? idea %>
+                                <img class="<%= 'votada' if votada %>" src="<%= image_path("corazon.svg") %>">
+                            <% end %>
+                            <span class="votos"><%= idea.votes_for %></span>
+                        </div>
+                    </aside>
+                </article>
+            <% end %>

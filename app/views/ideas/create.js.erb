@@ -1,5 +1,7 @@
-<% if @mensaje %>
-    notifyError('<%= @mensaje %>');
+<% if @mensajes.length > 0 %>
+    <% @mensajes.each do |mensaje| %>
+        notifyError('<%= mensaje %>');
+    <% end %>
 <% else %>
     var html = $('<%= 
         j(render(partial: 'ideas/idea', locals: { idea: @idea, ability: @ability })) 
@@ -13,16 +15,20 @@
     recalculateGrid();
 
     ideaCache.push("<%= j @idea.texto %>");  
+
+    var newIdeaTextarea = $("#new_idea .pure-input-3-4");
+
+    if (newIdeaTextarea.is(":focus")) {
+        newIdeaTextarea.val(promptActive);
+    } 
+    else {
+        newIdeaTextarea.val(prompt);
+    }
+    
+    $('.etiquetas-slider-wrapper').removeClass('slideUp').addClass('slideDown');
+    autosize.update(newIdeaTextarea);
+    $('#new_idea').find('#idea_categoria').val(''); 
 <% end %>
 
-var newIdeaTextarea = $("#new_idea .pure-input-3-4");
 
-if (newIdeaTextarea.is(":focus")) {
-    newIdeaTextarea.val(promptActive);
-} 
-else {
-    newIdeaTextarea.val(prompt);
-}
 
-autosize.update(newIdeaTextarea);
-$('#new_idea').find('#idea_categoria').val('');

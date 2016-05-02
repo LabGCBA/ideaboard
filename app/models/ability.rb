@@ -35,13 +35,15 @@ class Ability
       can :read, :all
     elsif persona.has_role? :editor
       can [:destroy, :update], Idea
-      can [:create, :update], Comentario, :persona_id => persona.id
+      can :create, Comentario
+      can :update, Comentario, :persona_id => persona.id
       can :destroy, Comentario
       can :read, :all
     elsif persona.has_role? :usuario
       can :create, Idea
+      can :create, Comentario
       can [:update, :destroy], Idea, :persona_id => persona.id
-      can [:create, :update], Comentario, :persona_id => persona.id
+      can :update, Comentario, :persona_id => persona.id
     else
       can :read, :all
       can :create, Comentario

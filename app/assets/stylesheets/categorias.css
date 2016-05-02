@@ -1,12 +1,7 @@
 .categoria, .etapa {
-   color: #777;
+   color: #777 !important;
    font-family: 'GothamRoundedMedium' !important;
    text-decoration: none;
-}
-
-.categoria:visited, .etapa:visited {
-    text-decoration: none;
-    color: #777;
 }
 
 .categoria:active, .etapa:active {

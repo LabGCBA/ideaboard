@@ -66,6 +66,10 @@ section.ideas-wrapper .ideas article.idea:before {
     display: table;
 }
 
+article.idea .tags, article.idea .tags a {
+    color: #777 !important;
+}
+
 article.idea .content {
     padding: 5px 0px 0px 0px !important;
     background-color: white !important;
@@ -105,6 +109,10 @@ article.idea .actionables {
     margin-top: 25px;
     margin-bottom: 10px;
     float: right;
+}
+
+article.idea .actionables .votada {
+    
 }
 
 article.idea .actionables a {
@@ -171,8 +179,8 @@ section.ideas-wrapper .ideas article.idea:after {
     position: relative;
 }
 
-.comments-modal article.idea .tags {
-    
+.comments-modal article.idea .tags .etapa.activa a {
+    color: black !important;
 }
 
 .comments-modal article.idea .tags a.content {

@@ -1,7 +1,8 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :estados, :comentarios]
-  before_action :authenticate_persona!, only: [:edit, :update, :destroy, :vote]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :estados, :comentarios, :update_etapa]
+  before_action :authenticate_persona!, only: [:edit, :update, :destroy, :vote, :update_etapa]
   before_action :set_ability
+  before_action :set_etapa, only: [:update_etapa]
   # before_action :authenticate_persona!, only: [:edit, :update, :destroy, :vote, :unvote]
    
   def index
@@ -20,8 +21,10 @@ class IdeasController < ApplicationController
   end
   
   def create
+    @mensajes  = []
+    
     if not persona_signed_in?
-        @mensaje = "Necesitás estar logueado."
+        @mensajes << "Necesitás estar logueado."
         
         respond_to do |format|
             format.js
@@ -33,19 +36,42 @@ class IdeasController < ApplicationController
       @idea.persona_id = current_persona.id
       @idea.etapa = Etapa.first
       
-      respond_to do |format|
-        if @idea.save
-          @idea = Idea.find(@idea.id)
-          
-          format.html { redirect_to root_path }
-          format.json { render :show, status: :created, location: @idea }
-          format.js
-        else
-          format.html { redirect_to root_path, notice: 'Hubo un error. No se pudo guardar la idea :(' }
-          format.json { render json: @idea.errors, status: :unprocessable_entity }
-          format.js
+      @idea.texto.strip!
+      @bloquear = true
+      
+      if @idea.texto.length == 0
+        @mensajes << "No escribiste nada!"
+      elsif @idea.texto.length < 3
+        @mensajes << "No menos de 3 carácteres!"
+      elsif @idea.texto.length > 300
+        @mensajes << "No más de 300 carácteres!"
+      elsif @idea.categoria.nil?
+        @mensajes << "No elegiste una etiqueta!"
+      else
+        @bloquear = false
+      end
+      
+      if not @bloquear
+        respond_to do |format|
+          if @idea.save
+            @idea = Idea.find(@idea.id)
+            
+            format.html { redirect_to root_path }
+            format.json { render :show, status: :created, location: @idea }
+            format.js
+          else
+            format.html { redirect_to root_path, notice: 'Hubo un error. No se pudo guardar la idea :(' }
+            format.json { render json: @idea.errors, status: :unprocessable_entity }
+            format.js
+          end
+        end
+      else
+        respond_to do |format|
+            format.js
         end
       end
+    else
+      Rails.logger.debug("NOT AUTHORIZED ")
     end
   end
   
@@ -124,6 +150,26 @@ class IdeasController < ApplicationController
      end
   end
   
+  def update_etapa
+    if @ability.can? :update, Idea
+       @idea.etapa_id = @etapa.id
+       
+       respond_to do |format|
+        if @idea.save          
+          Rails.logger.debug("EXITO!")
+          format.html { redirect_to root_path }
+          format.json
+          format.js
+        else
+          Rails.logger.debug("ERROR!")
+          format.html { redirect_to root_path, notice: 'Hubo un error. No se pudo cambiar la etapa :(' }
+          format.json { head :no_content }
+          format.js
+        end
+      end
+    end
+  end
+  
   def tv
     @ideas = Idea.order("created_at DESC").all
     @idea = Idea.new
@@ -137,6 +183,10 @@ class IdeasController < ApplicationController
     
     def set_ability
         @ability = Ability.new(current_persona)
+    end
+       
+    def set_etapa
+        @etapa = Etapa.find(params[:etapa_id])
     end
     
     def idea_params
