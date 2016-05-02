@@ -212,9 +212,9 @@ function documentReadyEvents() {
     newIdeaTextarea.focus(function() {
         if ($.trim($(this).val()) === prompt || $.trim($(this).val()).length === 0) {
             $(this).val(promptActive);
-            $('.etiquetas-slider-wrapper').removeClass('slideUp').addClass('slideDown');
         }
-
+        
+        $('.etiquetas-slider-wrapper').removeClass('slideUp').addClass('slideDown');
         autosize(newIdeaTextarea);
         setCaretToPos($(this), $(this).length);
     });
