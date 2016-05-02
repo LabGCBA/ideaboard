@@ -36,8 +36,8 @@ direcciones.times do |i|
   Direccion.create(nombre: "Dirección #{i + 1}", subsecretaria: Subsecretaria.find(1 + rand(subsecretarias)))
 end
 
-# case Rails.env
-#   when "development"
+case Rails.env
+  when "development"
       Persona.create(nombre: "Pobrecito Hablador", email: "pobrecito@hablador.com", password: 12345678)
       Persona.create(nombre: "  ", email: "usuario@anonimo.com", direccion: Direccion.find(1 + rand(direcciones)), password: 'gcbaanonimo123')
       Persona.create(nombre: "Miguel Gómez", email: "miguel@gomez.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
@@ -68,11 +68,11 @@ end
         Comentario.create(texto: "A mí no tanto.", idea: Idea.find(i + 1), persona: Persona.find(1 + rand(personas).round))
         Comentario.create(texto: "Podría ser, pero preferiría que se prioricen otras cosas.", idea: Idea.find(i + 1), persona: Persona.find(1 + rand(personas).round))
       end
-#   when "production"
+  when "production"
       Persona.create(nombre: "Pobrecito", apellido: "Hablador", email: "pobrecito@hablador.com", password: 12345678)
       Persona.create(nombre: "  ", email: "usuario@anonimo.com", direccion: Direccion.find(1 + rand(direcciones)), password: 'gcbaanonimo123')
       Persona.create(nombre: "Administrador", email: "admin@expresometro.com", direccion: Direccion.find(1 + rand(direcciones)), password: 'gcbaadmin123')
-# end
+end
 
 Persona.find_by_email("pobrecito@hablador.com").add_role :admin
 Persona.find_by_email("usuario@anonimo.com").add_role :admin
