@@ -39,7 +39,7 @@ end
 case Rails.env
   when "development"
       Persona.create(nombre: "Pobrecito Hablador", email: "pobrecito@hablador.com", password: 12345678)
-      Persona.create(nombre: "  ", email: "usuario@anonimo.com", direccion: Direccion.find(1 + rand(direcciones)), password: 'gcbaanonimo123')
+      Persona.create(nombre: "  ", email: "anonimo@expresometro.com", direccion: Direccion.find(1 + rand(direcciones)), password: 'gcbaanonimo123')
       Persona.create(nombre: "Miguel Gómez", email: "miguel@gomez.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
       Persona.create(nombre: "Fernando González", email: "fernando@gonzalez.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
       Persona.create(nombre: "Esteban Martínez", email: "esteban@martinez.com", direccion: Direccion.find(1 + rand(direcciones)), password: 12345678)
@@ -70,10 +70,10 @@ case Rails.env
       end
   when "production"
       Persona.create(nombre: "Pobrecito", apellido: "Hablador", email: "pobrecito@hablador.com", password: 12345678)
-      Persona.create(nombre: "  ", email: "usuario@anonimo.com", direccion: Direccion.find(1 + rand(direcciones)), password: 'gcbaanonimo123')
+      Persona.create(nombre: "  ", email: "anonimo@expresometro.com", direccion: Direccion.find(1 + rand(direcciones)), password: 'gcbaanonimo123')
       Persona.create(nombre: "Administrador", email: "admin@expresometro.com", direccion: Direccion.find(1 + rand(direcciones)), password: 'gcbaadmin123')
 end
 
 Persona.find_by_email("pobrecito@hablador.com").add_role :admin
-Persona.find_by_email("usuario@anonimo.com").add_role :admin
+Persona.find_by_email("anonimo@expresometro.com").add_role :admin
 Persona.find_by_email("admin@expresometro.com").add_role :admin
