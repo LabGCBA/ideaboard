@@ -1,8 +1,5 @@
-<% if @mensajes.length > 0 %>
-    <% @mensajes.each do |mensaje| %>
-        notifyError('<%= mensaje %>');
-    <% end %>
-<% else %>
+
+<% if not @bloquear %>
     var html = $('<%= 
         j(render(partial: 'ideas/idea', locals: { idea: @idea, ability: @ability })) 
     %>');
@@ -29,6 +26,8 @@
     autosize.update(newIdeaTextarea);
     $('#new_idea').find('#idea_categoria').val(''); 
 <% end %>
-
-
-
+<% if @mensajes and @mensajes.length > 0 %>
+    <% @mensajes.each do |mensaje| %>
+        notifyError('<%= mensaje %>');
+    <% end %>
+<% end %>
